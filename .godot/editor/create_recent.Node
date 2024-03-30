@@ -1,0 +1,15 @@
+Control
+HingeJoint3D
+Node
+AnimationPlayer
+Skeleton3D
+Label
+TextureRect
+RayCast3D
+CollisionShape3D
+Area3D
+StaticBody3D
+DirectionalLight3D
+MeshInstance3D
+Camera3D
+CharacterBody3D

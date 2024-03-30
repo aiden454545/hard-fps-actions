@@ -1,1 +1,7 @@
+res://scenes/player.tscn
+res://scripts/ActionInputs.gd
+res://scenes/test_world.tscn
 res://scenes/chest.tscn
+res://scenes/ActionInputs.tscn
+res://scenes/Labels.tscn
+res://scripts/chest.gd

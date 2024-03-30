@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1711819482
+::res://::1711820368
 icon.svg::CompressedTexture2D::1382299834751972792::1709873578::1709873627::1::::<><>::
 ::res://assets/::1710458293
 ::res://assets/images/::1710458293
@@ -7,9 +7,9 @@ crosshair (1).png::CompressedTexture2D::8453826655637820931::1710458261::1710458
 ::res://assets/images/textures/::1710458290
 ::res://assets/models/::1710352478
 chest.glb::PackedScene::2819074573322663006::1710352222::1710352478::1::::<><>::
-::res://scenes/::1710951275
+::res://scenes/::1711819796
 ActionInputs.tscn::PackedScene::677458279878984552::1710951148::0::1::::<><>::res://scripts/ActionInputs.gd
-chest.tscn::PackedScene::9007645884700997359::1710951148::0::1::::<><>::res://scripts/interactable.gd<>res://scripts/chest.gd<>uid://jwfvys885la3::::res://scenes/ActionInputs.tscn
+chest.tscn::PackedScene::9007645884700997359::1711819795::0::1::::<><>::res://scripts/interactable.gd<>res://scripts/chest.gd<>uid://jwfvys885la3::::res://scenes/ActionInputs.tscn
 Labels.tscn::PackedScene::6787276374873171290::1710951275::0::1::::<><>::
 player.tscn::PackedScene::4074934302001018736::1710951147::0::1::::<><>::res://scripts/player.gd<>res://scripts/InteractRay.gd<>uid://c3x2pkrbstf6q::::res://scenes/Labels.tscn
 signals.tscn::PackedScene::5696518335075978195::1710535223::0::1::::<><>::res://scripts/signals.gd

@@ -395,13 +395,24 @@ prompt_message = "chest"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032959, 0.723901, -0.000152588)
 shape = SubResource("BoxShape3D_mjpgb")
 
+[node name="Chest2" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chest2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032959, 0.723901, -0.000152588)
+shape = SubResource("BoxShape3D_mjpgb")
+disabled = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_mo2s8")
 }
 
 [node name="InputSequence" parent="." instance=ExtResource("3_dak4q")]
-targetInputs = "Down"
-stringLength = 4
+input1 = "Down"
+input2 = "Up"
+input3 = "Left"
+number_of_inputs = 3
 
 [connection signal="interacted" from="Chest" to="." method="_on_chest_interacted"]
+[connection signal="interacted" from="Chest" to="InputSequence" method="_on_chest_interacted"]
+[connection signal="InputsComplete" from="InputSequence" to="." method="_on_input_sequence_inputs_complete"]

@@ -7,12 +7,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="neededInputs" type="Label" parent="."]
+layout_mode = 0
 offset_right = 123.0
 offset_bottom = 23.0
 text = "Needed Inputs: "
 vertical_alignment = 1
 
 [node name="currentInputs" type="Label" parent="."]
+layout_mode = 0
 offset_top = 23.0
 offset_right = 118.0
 offset_bottom = 46.0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://iwlpamd20oko"]
 
-[ext_resource type="Script" path="res://addons/customizableCrosshair/crosshair/crosshair.gd" id="1_nrohy"]
+[ext_resource type="Script" path="res://assets/addons/customizableCrosshair/crosshair/crosshair.gd" id="1_nrohy"]
 
 [node name="crosshair" type="CenterContainer"]
 anchors_preset = 8

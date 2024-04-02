@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c207py2c1226u"]
+[gd_scene load_steps=17 format=3 uid="uid://c207py2c1226u"]
 
 [ext_resource type="Texture2D" uid="uid://cm37idw3301fk" path="res://assets/models/anim_rigged_guns_Rifles_baseColor.png" id="1_6aws2"]
 [ext_resource type="Texture2D" uid="uid://uh3l3cvc87vq" path="res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png" id="2_knix0"]
@@ -183,6 +183,83 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dpg18")
 
+[sub_resource type="Animation" id="Animation_sgibw"]
+resource_name = "AAC_HB_222_Shoot"
+length = 0.1
+step = 0.01
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature_001/Skeleton3D:Bone")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.144061, 2.75241e-16, 2.7524e-16, 0.989569, 0.01, 1, -0.144061, 2.75241e-16, 2.7524e-16, 0.989569, 0.05, 1, -0.11692, 2.67604e-16, 2.82671e-16, 0.993141, 0.1, 1, -0.144061, 2.75241e-16, 2.7524e-16, 0.989569)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature_001/Skeleton3D:Bone.002")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 4.55696e-16, 0.45618, -0.183854, 0.04, 1, 6.34235e-16, 0.375982, 0.0838036, 0.05, 1, 6.34235e-16, 0.375982, 0.0838036, 0.1, 1, 4.55696e-16, 0.45618, -0.183854)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature_001/Skeleton3D:Bone.004")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.976708, 2.5579e-08, -1.16433e-07, -0.214572, 0.02, 1, 0.999576, 4.6795e-08, -1.09641e-07, -0.0291066, 0.07, 1, 0.999576, 4.6795e-08, -1.09641e-07, -0.0291066, 0.1, 1, 0.976708, 2.5579e-08, -1.16433e-07, -0.214572)
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature_001/Skeleton3D:Bone.001")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 1.04633e-16, 0.471227, 0.0456026, 0.01, 1, 1.04633e-16, 0.471227, 0.0456026, 0.05, 1, 7.53709e-10, 0.46773, 0.0734386, 0.1, 1, 1.04633e-16, 0.471227, 0.0456026)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature_001/Skeleton3D:Bone.001")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.702839, -8.47994e-08, 8.37849e-08, 0.711349, 0.01, 1, -0.702839, -8.47994e-08, 8.37849e-08, 0.711349, 0.05, 1, -0.679495, -8.20489e-08, 8.64802e-08, 0.73368, 0.1, 1, -0.702839, -8.47994e-08, 8.37849e-08, 0.711349)
+
+[sub_resource type="Animation" id="Animation_xsh33"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature_001/Skeleton3D:Bone")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.144061, 2.75241e-16, 2.75241e-16, 0.989569)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature_001/Skeleton3D:Bone.002")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 4.55696e-16, 0.45618, -0.183854)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature_001/Skeleton3D:Bone.004")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.976708, 2.5579e-08, -1.16433e-07, -0.214572)
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature_001/Skeleton3D:Bone.001")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 1.04633e-16, 0.471227, 0.0456026)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5m01t"]
+_data = {
+"AAC_HB_222_Shoot": SubResource("Animation_sgibw"),
+"RESET": SubResource("Animation_xsh33")
+}
+
 [node name="AAC Honey Badger_222" type="Node3D"]
 
 [node name="Armature_001" type="Node3D" parent="."]
@@ -261,7 +338,7 @@ bones/9/rotation = Quaternion(0.702839, 8.47994e-08, -8.37849e-08, 0.711349)
 bones/9/scale = Vector3(1, 1, 1)
 
 [node name="Chamber" type="BoneAttachment3D" parent="Armature_001/Skeleton3D"]
-transform = Transform3D(1, 1.1716e-21, -1.41665e-21, -1.19507e-21, 1, 1.19209e-07, 1.33369e-21, -1.19209e-07, 1, 8.69872e-17, 0.391755, -0.378246)
+transform = Transform3D(1, 1.56699e-21, -6.74706e-22, -1.55045e-21, 1, -2.98023e-07, 5.9306e-22, 2.98023e-07, 1, 8.69869e-17, 0.391755, -0.378246)
 bone_name = "Chamber"
 bone_idx = 2
 
@@ -270,7 +347,7 @@ mesh = SubResource("ArrayMesh_ungpv")
 skeleton = NodePath("")
 
 [node name="Magazine" type="BoneAttachment3D" parent="Armature_001/Skeleton3D"]
-transform = Transform3D(1, -1.46246e-21, -1.16467e-21, 1.37643e-21, 1, 2.23517e-08, 1.00585e-21, -2.23517e-08, 0.999999, 8.69873e-17, 0.391755, -0.378246)
+transform = Transform3D(1, -1.14482e-21, -6.35275e-22, 1.06541e-21, 1, -3.94881e-07, 3.70577e-22, 3.94881e-07, 0.999999, 8.69872e-17, 0.391756, -0.378246)
 bone_name = "Magazine"
 bone_idx = 4
 
@@ -279,7 +356,7 @@ mesh = SubResource("ArrayMesh_j3874")
 skeleton = NodePath("")
 
 [node name="Trigger_001" type="BoneAttachment3D" parent="Armature_001/Skeleton3D"]
-transform = Transform3D(1, -2.4869e-14, 0, 1.77636e-14, 1, 1.63913e-07, -1.42109e-14, -1.63913e-07, 1, -3.54684e-14, 0.391755, -0.378246)
+transform = Transform3D(1, -4.26326e-14, 7.67386e-13, 4.61853e-14, 1, -5.06639e-07, -7.38964e-13, 5.06639e-07, 1, -1.95341e-13, 0.391755, -0.378246)
 bone_name = "Trigger.001"
 bone_idx = 6
 
@@ -288,7 +365,7 @@ mesh = SubResource("ArrayMesh_14sqg")
 skeleton = NodePath("")
 
 [node name="Base_001" type="BoneAttachment3D" parent="Armature_001/Skeleton3D"]
-transform = Transform3D(1, 7.67624e-22, -8.99973e-22, -7.14684e-22, 1, -8.9407e-08, 9.52912e-22, 8.9407e-08, 1, 8.69862e-17, 0.391755, -0.378247)
+transform = Transform3D(1, 1.11173e-21, -2.64698e-22, -1.01909e-21, 1, -5.36442e-07, 4.23516e-22, 5.36442e-07, 1, 8.69861e-17, 0.391755, -0.378247)
 bone_name = "Base.001"
 bone_idx = 7
 
@@ -297,10 +374,16 @@ mesh = SubResource("ArrayMesh_umhuy")
 skeleton = NodePath("")
 
 [node name="Slide_001" type="BoneAttachment3D" parent="Armature_001/Skeleton3D"]
-transform = Transform3D(1, -2.84217e-14, 2.17604e-14, -2.84217e-14, 1, 0, 2.17604e-14, 0, 1, 0.000195014, 0.473849, 0.0409974)
+transform = Transform3D(1, -5.68434e-14, 2.15383e-14, -5.68434e-14, 1, -9.31323e-10, 2.13163e-14, 9.31323e-10, 1, 0.000195014, 0.473849, 0.0409974)
 bone_name = "Slide.001"
 bone_idx = 9
 
 [node name="Slide_001" type="MeshInstance3D" parent="Armature_001/Skeleton3D/Slide_001"]
+transform = Transform3D(1, 0, 0, -1.34581e-41, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_nalv4")
 skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5m01t")
+}

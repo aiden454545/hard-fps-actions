@@ -162,9 +162,9 @@ func updateLineStyle(style: int):
 		0:
 			return null
 		1:
-			return preload("res://addons/customizableCrosshair/crosshair/curves/arrow.tres")
+			return preload("res://assets/addons/customizableCrosshair/crosshair/curves/arrow.tres")
 		2:
-			return preload("res://addons/customizableCrosshair/crosshair/curves/inverseArrow.tres")
+			return preload("res://assets/addons/customizableCrosshair/crosshair/curves/inverseArrow.tres")
 		_:
 			return null
 

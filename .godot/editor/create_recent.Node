@@ -1,8 +1,8 @@
+AnimationPlayer
 Timer
 Control
 HingeJoint3D
 Node
-AnimationPlayer
 Skeleton3D
 Label
 TextureRect
@@ -12,4 +12,3 @@ Area3D
 StaticBody3D
 DirectionalLight3D
 MeshInstance3D
-Camera3D

@@ -327,7 +327,7 @@ bones/8/parent = -1
 bones/8/rest = Transform3D(1, -2.13163e-14, -2.38419e-07, 2.38401e-07, 0.0120345, 0.999928, 2.86922e-09, -0.999928, 0.0120345, 1.04633e-16, 0.471227, 0.0456026)
 bones/8/enabled = true
 bones/8/position = Vector3(1.04633e-16, 0.471227, 0.0456026)
-bones/8/rotation = Quaternion(-0.702839, -8.47994e-08, 8.37849e-08, 0.711349)
+bones/8/rotation = Quaternion(-0.682621, -8.24173e-08, 8.61292e-08, 0.730773)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "Slide.001"
 bones/9/parent = 8
@@ -338,7 +338,7 @@ bones/9/rotation = Quaternion(0.702839, 8.47994e-08, -8.37849e-08, 0.711349)
 bones/9/scale = Vector3(1, 1, 1)
 
 [node name="Chamber" type="BoneAttachment3D" parent="Armature_001/Skeleton3D"]
-transform = Transform3D(1, 1.56699e-21, -6.74706e-22, -1.55045e-21, 1, -2.98023e-07, 5.9306e-22, 2.98023e-07, 1, 8.69869e-17, 0.391755, -0.378246)
+transform = Transform3D(1, 1.98968e-21, -2.50348e-22, -2.08873e-21, 0.998871, -0.0474993, 3.08836e-23, 0.0474993, 0.998871, 4.40151e-16, 0.395452, -0.0801394)
 bone_name = "Chamber"
 bone_idx = 2
 
@@ -347,7 +347,7 @@ mesh = SubResource("ArrayMesh_ungpv")
 skeleton = NodePath("")
 
 [node name="Magazine" type="BoneAttachment3D" parent="Armature_001/Skeleton3D"]
-transform = Transform3D(1, -1.14482e-21, -6.35275e-22, 1.06541e-21, 1, -3.94881e-07, 3.70577e-22, 3.94881e-07, 0.999999, 8.69872e-17, 0.391756, -0.378246)
+transform = Transform3D(1, -6.2204e-22, 0, 4.49986e-22, 0.998871, -0.0474993, -2.11758e-22, 0.0474994, 0.99887, 8.69872e-17, 0.40928, -0.359211)
 bone_name = "Magazine"
 bone_idx = 4
 
@@ -356,7 +356,7 @@ mesh = SubResource("ArrayMesh_j3874")
 skeleton = NodePath("")
 
 [node name="Trigger_001" type="BoneAttachment3D" parent="Armature_001/Skeleton3D"]
-transform = Transform3D(1, -4.26326e-14, 7.67386e-13, 4.61853e-14, 1, -5.06639e-07, -7.38964e-13, 5.06639e-07, 1, -1.95341e-13, 0.391755, -0.378246)
+transform = Transform3D(1, -8.3915e-08, -2.87911e-08, 8.87161e-08, 0.947085, 0.320984, 3.32292e-10, -0.320984, 0.947085, -4.69598e-09, 0.326047, -0.395356)
 bone_name = "Trigger.001"
 bone_idx = 6
 
@@ -365,7 +365,7 @@ mesh = SubResource("ArrayMesh_14sqg")
 skeleton = NodePath("")
 
 [node name="Base_001" type="BoneAttachment3D" parent="Armature_001/Skeleton3D"]
-transform = Transform3D(1, 1.11173e-21, -2.64698e-22, -1.01909e-21, 1, -5.36442e-07, 4.23516e-22, 5.36442e-07, 1, 8.69861e-17, 0.391755, -0.378247)
+transform = Transform3D(1, 1.64113e-21, 3.17637e-22, -1.58819e-21, 0.998871, -0.0474995, -3.17637e-22, 0.0474995, 0.998871, 8.69861e-17, 0.40928, -0.359212)
 bone_name = "Base.001"
 bone_idx = 7
 
@@ -374,7 +374,7 @@ mesh = SubResource("ArrayMesh_umhuy")
 skeleton = NodePath("")
 
 [node name="Slide_001" type="BoneAttachment3D" parent="Armature_001/Skeleton3D"]
-transform = Transform3D(1, -5.68434e-14, 2.15383e-14, -5.68434e-14, 1, -9.31323e-10, 2.13163e-14, 9.31323e-10, 1, 0.000195014, 0.473849, 0.0409974)
+transform = Transform3D(1, 2.13873e-10, 1.33659e-08, 5.35536e-10, 0.998428, -0.0560463, -1.33568e-08, 0.0560463, 0.998428, 0.000195015, 0.471068, 0.0653096)
 bone_name = "Slide.001"
 bone_idx = 9
 

@@ -20,9 +20,17 @@ config/icon="res://icon.svg"
 Signals="*res://scripts/signals.gd"
 Labels="*res://scenes/Labels.tscn"
 
+[debug]
+
+settings/size/window_width_override=0
+settings/size/window_height_override=0
+settings/size/viewport_height=648
+settings/size/viewport_width=1152
+settings/stretch/aspect="expand"
+
 [display]
 
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
 
 [input]
 

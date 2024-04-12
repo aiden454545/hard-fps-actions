@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=2 format=3 uid="uid://bign135l2dr1x"]
+
+[ext_resource type="Script" path="res://scripts/weapon_resource.gd" id="1_h3swc"]
+
+[resource]
+script = ExtResource("1_h3swc")
+WeaponName = "FN FIVE-SEVEN_139"
+ActivationAnim = "FN_57_Shoot"
+ShootAnim = ""
+ReloadAnim = ""
+Deactivate = ""
+OutOfAmmoAnim = ""
+CurrentAmmo = 12
+ReservedAmmo = 128
+MagSize = 12
+MaxAmmo = 128
+AutoFire = false

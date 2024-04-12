@@ -1,14 +1,14 @@
+TextureRect
 AnimationPlayer
+Node3D
 Timer
 Control
 HingeJoint3D
 Node
 Skeleton3D
 Label
-TextureRect
 RayCast3D
 CollisionShape3D
 Area3D
 StaticBody3D
 DirectionalLight3D
-MeshInstance3D

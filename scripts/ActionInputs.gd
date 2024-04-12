@@ -22,14 +22,73 @@ extends Node
 #endregion
 @onready var needed_inputs = Labels.get_node("neededInputs")
 @onready var current_inputs = Labels.get_node("currentInputs")
+@onready var NextInputImage = Labels.get_node("NextInputImage")
+
+var UpImage = preload("res://assets/images/up arrow.png")
+var DownImage = preload("res://assets/images/down arrow.png")
+var LeftImage = preload("res://assets/images/left arrow arrow.png")
+var RightImage = preload("res://assets/images/right arrow.png")
 
 signal InputsComplete
 
 var inputnum = 0
 
+var InputImage = ""
 var keyboard_input = ""
 var is_interacting
 
+func _process(delta):
+	Next_Input_Image()
+
+func Next_Input_Image():
+#region InputImage ifs
+	if inputnum == 0:
+		InputImage = input1
+	if inputnum == 1:
+		InputImage = input2
+	if inputnum == 2:
+		InputImage = input3
+	if inputnum == 3:
+		InputImage = input4
+	if inputnum == 4:
+		InputImage = input5
+	if inputnum == 5:
+		InputImage = input6
+	if inputnum == 6:
+		InputImage = input7
+	if inputnum == 7:
+		InputImage = input8
+	if inputnum == 8:
+		InputImage = input9
+	if inputnum == 9:
+		InputImage = input10
+	if inputnum == 10:
+		InputImage = input11
+	if inputnum == 11:
+		InputImage = input12
+	if inputnum == 12:
+		InputImage = input13
+	if inputnum == 13:
+		InputImage = input14
+	if inputnum == 14:
+		InputImage = input15
+	if inputnum == 15:
+		InputImage = input16
+#endregion
+	
+	if is_interacting == true:
+		if InputImage.contains("Up") :
+			NextInputImage.texture = UpImage
+			print("rree")
+		if InputImage.contains("Down") :
+			print("ge")
+			NextInputImage.texture = DownImage
+		if InputImage.contains("Left") :
+			NextInputImage.texture = LeftImage
+		if InputImage.contains("Right") :
+			NextInputImage.texture = RightImage
+#	else:
+#		NextInputImage.texture = null
 func _input(event):
 	if event is InputEventKey and event.is_pressed() and is_interacting == true:
 		needed_inputs.text = "Needed Inputs: "

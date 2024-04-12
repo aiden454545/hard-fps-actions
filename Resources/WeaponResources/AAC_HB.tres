@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=2 format=3 uid="uid://di2yicsllsphh"]
+
+[ext_resource type="Script" path="res://scripts/weapon_resource.gd" id="1_f2d18"]
+
+[resource]
+script = ExtResource("1_f2d18")
+WeaponName = "AAC Honey Badger_222"
+ActivationAnim = "AAC_HB_222_Shoot"
+ShootAnim = ""
+ReloadAnim = ""
+Deactivate = ""
+OutOfAmmoAnim = ""
+CurrentAmmo = 30
+ReservedAmmo = 150
+MagSize = 30
+MaxAmmo = 180
+AutoFire = true
+FireRate = 0

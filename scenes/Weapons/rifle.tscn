@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bibwf5nnh1q3y"]
+[gd_scene load_steps=12 format=3 uid="uid://bibwf5nnh1q3y"]
 
 [ext_resource type="Texture2D" uid="uid://cm37idw3301fk" path="res://assets/models/anim_rigged_guns_Rifles_baseColor.png" id="1_callm"]
 [ext_resource type="Texture2D" uid="uid://uh3l3cvc87vq" path="res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png" id="2_xk015"]
@@ -149,62 +149,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fiyqm")
 
-[sub_resource type="Animation" id="Animation_jo5hs"]
-length = 0.001
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D:Bone")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 1.55097e-25, -8.33645e-25, 1)
-tracks/1/type = "position_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Armature/Skeleton3D:Bone.001")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 3.82968e-16, 1.69135, -0.793836)
-tracks/2/type = "rotation_3d"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Armature/Skeleton3D:Bone.002")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0.991103, -1.58661e-08, 1.18149e-07, -0.133095)
-
-[sub_resource type="Animation" id="Animation_ekk1i"]
-resource_name = "Rifle_Shoot"
-length = 0.1
-step = 0.01
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D:Bone")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 1.55097e-25, -8.33645e-25, 1, 0.04, 1, 0.00513997, 1.5081e-25, -8.34431e-25, 0.999987, 0.06, 1, 0.00513997, 1.5081e-25, -8.34431e-25, 0.999987, 0.1, 1, 0, 1.55097e-25, -8.33645e-25, 1)
-tracks/1/type = "position_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Armature/Skeleton3D:Bone.001")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 3.82968e-16, 1.69135, -0.793836, 0.05, 1, 5.88498e-16, 1.56515, 0.13179, 0.1, 1, 3.82968e-16, 1.69135, -0.793836)
-tracks/2/type = "rotation_3d"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Armature/Skeleton3D:Bone.002")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0.991103, -1.58661e-08, 1.18149e-07, -0.133095, 0.01, 1, 0.995769, -4.18833e-08, 1.11609e-07, 0.0918935, 0.08, 1, 0.995769, -4.18833e-08, 1.11609e-07, 0.0918935, 0.1, 1, 0.991103, -1.58661e-08, 1.18149e-07, -0.133095, 0.2, 1, 0.995769, -4.18833e-08, 1.11609e-07, 0.0918935)
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ju0t"]
-_data = {
-"RESET": SubResource("Animation_jo5hs"),
-"Rifle_Shoot": SubResource("Animation_ekk1i")
-}
-
 [node name="Rifle" type="Node3D"]
 
 [node name="Armature" type="Node3D" parent="."]
@@ -270,7 +214,7 @@ bones/7/rotation = Quaternion(0.0704698, 3.31697e-24, -1.56474e-17, 0.997514)
 bones/7/scale = Vector3(3.65067, 3.65068, 3.65068)
 
 [node name="Slide" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(3.65068, 1.13962e-16, -8.05065e-18, -1.13883e-16, 3.60955, -0.546457, -9.0987e-18, 0.546457, 3.60955, 5.08725e-16, 1.6726, -1.63174)
+transform = Transform3D(3.65068, 1.13962e-16, -8.05065e-18, -1.13962e-16, 3.61442, -0.513237, -8.05088e-18, 0.513237, 3.61442, 3.61619e-16, 1.74785, -2.30956)
 bone_name = "Slide"
 bone_idx = 2
 
@@ -279,7 +223,7 @@ mesh = SubResource("ArrayMesh_6ggia")
 skeleton = NodePath("")
 
 [node name="Trigger" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(3.65068, 3.64006e-07, 1.37896e-07, -3.88751e-07, 3.47503, 1.11874, -1.97132e-08, -1.11874, 3.47503, -3.52395e-08, 0.859583, -2.39896)
+transform = Transform3D(3.65068, -2.55795e-13, -4.60432e-12, -3.41061e-13, 3.61969, -0.474601, 4.43379e-12, 0.474601, 3.61969, 1.36452e-12, 1.72765, -2.31653)
 bone_name = "Trigger"
 bone_idx = 4
 
@@ -288,7 +232,7 @@ mesh = SubResource("ArrayMesh_bdoqs")
 skeleton = NodePath("")
 
 [node name="Mag" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(3.65068, -1.18837e-06, -8.9407e-07, 4.47035e-08, 3.60954, -0.546463, 1.51992e-06, 0.546463, 3.60955, -7.59959e-07, 1.76902, -2.29338)
+transform = Transform3D(3.65068, -1.18837e-06, -8.9407e-07, 6.70552e-08, 3.61441, -0.513243, 1.54972e-06, 0.513243, 3.61442, -7.59959e-07, 1.74785, -2.30956)
 bone_name = "Mag"
 bone_idx = 6
 
@@ -297,7 +241,7 @@ mesh = SubResource("ArrayMesh_1p2wv")
 skeleton = NodePath("")
 
 [node name="Base" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(3.65067, 1.13963e-16, -8.05096e-18, -1.13884e-16, 3.60955, -0.546467, -9.09877e-18, 0.546467, 3.60955, 3.61618e-16, 1.76902, -2.29339)
+transform = Transform3D(3.65067, 1.13963e-16, -8.05096e-18, -1.13963e-16, 3.61442, -0.513246, -8.05099e-18, 0.513246, 3.61442, 3.61618e-16, 1.74785, -2.30956)
 bone_name = "Base"
 bone_idx = 7
 
@@ -305,8 +249,3 @@ bone_idx = 7
 transform = Transform3D(1, 1.6431e-25, -2.06795e-25, 1.64309e-25, 1, 0, 2.06795e-25, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rv8j4")
 skeleton = NodePath("")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_8ju0t")
-}

@@ -1,5 +1,6 @@
-TextureRect
+MeshInstance3D
 AnimationPlayer
+TextureRect
 Node3D
 Timer
 Control

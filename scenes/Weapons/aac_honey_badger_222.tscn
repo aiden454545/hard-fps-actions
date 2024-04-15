@@ -302,6 +302,5 @@ bone_name = "Slide.001"
 bone_idx = 9
 
 [node name="Slide_001" type="MeshInstance3D" parent="Armature_001/Skeleton3D/Slide_001"]
-transform = Transform3D(1, 0, 0, -1.34581e-41, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_nalv4")
 skeleton = NodePath("")

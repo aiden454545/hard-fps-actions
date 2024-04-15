@@ -1,9 +1,26 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1713191162
+::res://::1713202415
 icon.svg::CompressedTexture2D::1382299834751972792::1709873578::1709873627::1::::<><>::
 README.md::TextFile::-1::1712949040::0::1::::<><>::
-::res://addons/::1712949040
-::res://addons/orchestrator/::1713191094
+::res://addons/::1713202206
+::res://addons/godot-jolt/::1713202221
+godot-jolt.gdextension::GDExtension::-1::1713202207::0::1::::<><>::
+LICENSE.txt::TextFile::-1::1713202208::0::1::::<><>::
+THIRDPARTY.txt::TextFile::-1::1713202221::0::1::::<><>::
+::res://addons/godot-jolt/android/::1713202207
+::res://addons/godot-jolt/ios/::1713202207
+::res://addons/godot-jolt/ios/godot-jolt_ios.framework/::1713202207
+::res://addons/godot-jolt/ios/godot-jolt_ios_editor.framework/::1713202207
+::res://addons/godot-jolt/linux/::1713202215
+::res://addons/godot-jolt/macos/::1713202217
+::res://addons/godot-jolt/macos/godot-jolt_macos.framework/::1713202217
+::res://addons/godot-jolt/macos/godot-jolt_macos.framework/Resources/::1713202217
+::res://addons/godot-jolt/macos/godot-jolt_macos.framework/_CodeSignature/::1713202217
+::res://addons/godot-jolt/macos/godot-jolt_macos_editor.framework/::1713202221
+::res://addons/godot-jolt/macos/godot-jolt_macos_editor.framework/Resources/::1713202221
+::res://addons/godot-jolt/macos/godot-jolt_macos_editor.framework/_CodeSignature/::1713202221
+::res://addons/godot-jolt/windows/::1713202378
+::res://addons/orchestrator/::1713202389
 AUTHORS.md::TextFile::-1::1712929726::0::1::::<><>::
 CHANGELOG.md::TextFile::-1::1712929726::0::1::::<><>::
 orchestrator.gdextension::GDExtension::-1::1712929726::0::1::::<><>::
@@ -62,24 +79,25 @@ logo.png::CompressedTexture2D::228581863698764109::1712949043::1712949046::1::::
 AAC_HB.tres::Resource/Resource::7777982627089204689::1712155243::0::1::::<><>::res://scripts/weapon_resource.gd
 FN_57.tres::Resource/Resource::2961154968403155831::1712154462::0::1::::<><>::res://scripts/weapon_resource.gd
 Rifle.tres::Resource/Resource::6570810938764742871::1712155243::0::1::::<><>::res://scripts/weapon_resource.gd
-::res://scenes/::1713120327
-ActionInputs.tscn::PackedScene::677458279878984552::1713120049::0::1::::<><>::res://scripts/ActionInputs.gd
-Box Boy.tscn::PackedScene::5071181719914665304::1713192993::0::1::::<><>::
-chest.tscn::PackedScene::9007645884700997359::1713120048::0::1::::<><>::res://scripts/interactable.gd<>res://scripts/chest.gd<>uid://jwfvys885la3::::res://scenes/ActionInputs.tscn
-Labels.tscn::PackedScene::6787276374873171290::1713120049::0::1::::<><>::
-player.tscn::PackedScene::4074934302001018736::1713120048::0::1::::<><>::res://scripts/player.gd<>res://scripts/InteractRay.gd<>uid://c3x2pkrbstf6q::::res://scenes/Labels.tscn<>res://scenes/WeaponManager.gd
-Box Boy RagDoll.tscn::PackedScene::8516027182265946761::1713193021::0::1::::<><>::
+::res://scenes/::1713202372
+ActionInputs.tscn::PackedScene::677458279878984552::1713202370::0::1::::<><>::res://scripts/ActionInputs.gd
+Box Boy RagDoll.tscn::PackedScene::8516027182265946761::1713202372::0::1::::<><>::res://scenes/Skeleton3D.gd
+Box Boy.tscn::PackedScene::5071181719914665304::1713202371::0::1::::<><>::
+chest.tscn::PackedScene::9007645884700997359::1713202369::0::1::::<><>::res://scripts/interactable.gd<>res://scripts/chest.gd<>uid://jwfvys885la3::::res://scenes/ActionInputs.tscn
+Labels.tscn::PackedScene::6787276374873171290::1713202370::0::1::::<><>::
+player.tscn::PackedScene::4074934302001018736::1713202368::0::1::::<><>::res://scripts/player.gd<>res://scripts/InteractRay.gd<>uid://c3x2pkrbstf6q::::res://scenes/Labels.tscn<>res://scenes/WeaponManager.gd
 signals.tscn::PackedScene::5696518335075978195::1710535223::0::1::::<><>::res://scripts/signals.gd
-test_world.tscn::PackedScene::3858519556803132904::1713120327::0::1::::<><>::uid://byb6tp6oemv5a::::res://scenes/player.tscn<>uid://d1lmu2d1asdcp::::res://scenes/chest.tscn<>uid://ceirvfb2e4wqy::::res://scenes/Box Boy.tscn
+Skeleton3D.gd::GDScript::-1::1713195257::0::1::::<>Skeleton3D<>::
+test_world.tscn::PackedScene::3858519556803132904::1713202369::0::1::::<><>::uid://byb6tp6oemv5a::::res://scenes/player.tscn<>uid://d1lmu2d1asdcp::::res://scenes/chest.tscn<>uid://ceirvfb2e4wqy::::res://scenes/Box Boy.tscn<>res://scenes/Skeleton3D.gd
 WeaponManager.gd::GDScript::-1::1712154852::0::1::::<>Node3D<>::
 ::res://scenes/interaction/::1710460345
 interactable.tscn::PackedScene::2506300837374273511::1710457398::0::1::::<><>::res://scripts/interactions/interactable.gd
 interactor.tscn::PackedScene::3222829578636931879::1710460345::0::1::::<><>::res://scripts/interactor.gd
 player_interactor.tscn::PackedScene::5080852308652307073::1710457398::0::1::::<><>::uid://bl6fsdlqehm3h::::res://scenes/interaction/interactor.tscn<>res://scripts/interactions/PlayerInteractor.gd
-::res://scenes/Weapons/::1713120050
-aac_honey_badger_222.tscn::PackedScene::6721520622538502934::1713120050::0::1::::<><>::uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png
-fn_five_seven_139.tscn::PackedScene::2555657073579281422::1713120050::0::1::::<><>::uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png
-rifle.tscn::PackedScene::2951342109745824560::1713120049::0::1::::<><>::uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png
+::res://scenes/Weapons/::1713202371
+aac_honey_badger_222.tscn::PackedScene::6721520622538502934::1713202371::0::1::::<><>::uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png
+fn_five_seven_139.tscn::PackedScene::2555657073579281422::1713202371::0::1::::<><>::uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png
+rifle.tscn::PackedScene::2951342109745824560::1713202370::0::1::::<><>::uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png
 WeaponManager.tscn::PackedScene::8580779565577694167::1712930470::0::1::::<><>::uid://bibwf5nnh1q3y::::res://scenes/Weapons/rifle.tscn<>uid://c207py2c1226u::::res://scenes/Weapons/aac_honey_badger_222.tscn<>uid://bcn8kfg15ag35::::res://scenes/Weapons/fn_five_seven_139.tscn
 ::res://scripts/::1712930469
 ActionInputs.gd::GDScript::-1::1712688288::0::1::::<>Node<>::

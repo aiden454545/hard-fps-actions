@@ -1,6 +1,3 @@
-res://scenes/Box Boy.tscn
-res://scenes/Box Boy RagDoll.tscn
-res://scenes/Skeleton3D.gd
 res://scenes/player.tscn
 res://scenes/test_world.tscn
 res://scenes/chest.tscn
@@ -9,3 +6,10 @@ res://scenes/Labels.tscn
 res://scenes/Weapons/rifle.tscn
 res://scenes/Weapons/aac_honey_badger_222.tscn
 res://scenes/Weapons/fn_five_seven_139.tscn
+res://scenes/Box Boy.tscn
+res://scenes/Box Boy RagDoll.tscn
+res://scripts/player.gd
+res://scenes/Skeleton3D.gd
+res://scenes/Box Boy.gd
+res://gunhandeler.gd
+res://gunhandeler.tscn

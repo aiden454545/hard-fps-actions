@@ -85,3 +85,7 @@ action4={
 3d_physics/layer_1="envirnment"
 3d_physics/layer_2="player"
 3d_physics/layer_30="interactable"
+
+[physics]
+
+3d/physics_engine="JoltPhysics3D"

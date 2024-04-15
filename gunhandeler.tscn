@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d07vr2mydrypu"]
+
+[ext_resource type="Script" path="res://gunhandeler.gd" id="1_ogg15"]
+
+[node name="gunhandeler" type="Node"]
+script = ExtResource("1_ogg15")

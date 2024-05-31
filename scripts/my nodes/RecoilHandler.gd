@@ -20,6 +20,7 @@ var equipped = false
 var fired
 
 
+
 var player
 
 var target_rot
@@ -28,15 +29,12 @@ var target_pos
 var current_point
 var offset = Vector3.ZERO
 
-var camera_rotation
 
 func _ready():
 	pass
 
 
 func _process(delta):
-	if player:
-		camera_rotation = player.camera_rotation
 	
 	if player and equipped:
 		ads_point.top_level = true

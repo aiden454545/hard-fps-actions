@@ -34,9 +34,9 @@ settings/stretch/aspect="expand"
 
 [display]
 
+window/size/resizable=false
 window/size/always_on_top=true
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [input]
 

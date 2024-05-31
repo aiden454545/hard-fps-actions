@@ -2,6 +2,11 @@ extends CharacterBody3D
 
 @onready var animPlayer = $head/pivot/AnimationPlayer
 
+@onready var wallrayback = $wallRunRaycasts/back
+@onready var wallrayleft = $wallRunRaycasts/left
+@onready var wallrayright = $wallRunRaycasts/right
+
+
 @onready var head = $head
 @onready var pivot = $head/pivot
 @onready var Camera = $head/pivot/Camera3D
@@ -52,6 +57,8 @@ var crouchingdepth = -0.3
 var direction = Vector3.ZERO
 var Velocity
 
+var wallNormal = Vector3.ZERO
+
 var max: float = 4
 var slideVector = Vector2.ZERO
 
@@ -79,8 +86,11 @@ func _process(delta):
 	elif Input.is_action_just_pressed("escape") and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+
 func _physics_process(delta):
 	if !player_enabled: return
+	
+	wallRun()
 	
 	var input_dir = Input.get_vector("left", "right", "forward", "back")
 	
@@ -193,3 +203,24 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+
+func wallRun():
+	if !is_on_floor():
+		await get_tree().create_timer(0.01).timeout
+		if Input.is_action_pressed("forward") and Input.is_action_pressed("left"):
+			if wallrayleft.is_colliding():
+				wallNormal = wallrayleft.get_collision_normal()
+				gravity = 0
+				direction = direction + wallNormal
+		elif Input.is_action_pressed("forward") and Input.is_action_pressed("right"):
+			if wallrayright.is_colliding():
+				wallNormal = wallrayright.get_collision_normal()
+				gravity = 0
+				direction = direction + wallNormal
+		elif Input.is_action_pressed("forward") and Input.is_action_pressed("back"):
+			if wallrayback.is_colliding():
+				wallNormal = wallrayback.get_collision_normal()
+				gravity = 0
+				direction = direction + wallNormal
+		else: gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 3.5
+	else: gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 3.5

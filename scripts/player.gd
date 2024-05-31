@@ -30,6 +30,7 @@ extends CharacterBody3D
 @export var walkingspeed: float = 7
 @export var sprintspeed: float = 10
 @export var crouchspeed: float = 3.5
+@export var wallRunSpeed:float = 15
 
 @export_category("camera settings")
 @export var slideTilt: float
@@ -50,6 +51,7 @@ var sliding = false
 var walking = false
 var sprinting = false
 var crouching = false
+var wallRunning = false
 
 var currentspeed: float
 var crouchingdepth = -0.3
@@ -70,7 +72,14 @@ var lastVelocity = Vector3.ZERO
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 3.5
 
 func _ready():
-	crouchcast.add_exception($StaticBody3D)
+	wallrayback.add_exception(damagebody)
+	wallrayleft.add_exception(damagebody)
+	wallrayright.add_exception(damagebody)
+	wallrayback.add_exception($".")
+	wallrayleft.add_exception($".")
+	wallrayright.add_exception($".")
+	crouchcast.add_exception(damagebody)
+	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event):
@@ -145,11 +154,20 @@ func _physics_process(delta):
 			crouching = false
 			sliding = false
 	
-	if sliding:
-		if is_on_floor():
-			Camera.rotation.z = lerp(Camera.rotation.z, -deg_to_rad(4), delta * 10)
+	if wallRunning:
+		currentspeed = wallRunSpeed
+		if wallrayleft.is_colliding():
+			Camera.rotation.z = lerp(Camera.rotation.z, -deg_to_rad(10), delta * 8)
+		elif wallrayright.is_colliding():
+			Camera.rotation.z = lerp(Camera.rotation.z, deg_to_rad(10), delta * 8)
 		else:
 			Camera.rotation.z = lerp(Camera.rotation.z, 0.0, delta * 10)
+	
+	if sliding:
+		if is_on_floor():
+			Camera.rotation.z = lerp(Camera.rotation.z, -deg_to_rad(4), delta * 8)
+		else:
+			Camera.rotation.z = lerp(Camera.rotation.z, 0.0, delta * 8)
 		slideTime -= delta
 		if slideTime <= 0:
 			sliding = false
@@ -182,8 +200,9 @@ func _physics_process(delta):
 		if lastVelocity.y < 0.0 and !sliding:
 			animPlayer.play("landing")
 	
+	print(str(wallRunning))
 	
-	if is_on_floor():
+	if is_on_floor() or wallRunning:
 		direction = lerp(direction,(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(),delta * 10)
 	else:
 		if input_dir != Vector2.ZERO:
@@ -206,21 +225,41 @@ func _physics_process(delta):
 
 func wallRun():
 	if !is_on_floor():
-		await get_tree().create_timer(0.01).timeout
-		if Input.is_action_pressed("forward") and Input.is_action_pressed("left"):
-			if wallrayleft.is_colliding():
+		await get_tree().create_timer(0.15).timeout
+		if wallrayleft.is_colliding():
+			if Input.is_action_pressed("forward"):
+				wallRunning = true
+				sprinting = false
+				walking = false
+				crouching = false
+				sliding = false
 				wallNormal = wallrayleft.get_collision_normal()
-				gravity = 0
-				direction = direction + wallNormal
-		elif Input.is_action_pressed("forward") and Input.is_action_pressed("right"):
-			if wallrayright.is_colliding():
+				if Input.is_action_just_pressed("jump"):
+					velocity.y = JUMP_VELOCITY * 1.2
+					direction = direction + (wallNormal * 2.8)
+					wallRunning = false
+				else:
+					velocity.y = 0
+			else:
+				wallRunning = false
+		elif wallrayright.is_colliding():
+			if Input.is_action_pressed("forward"):
 				wallNormal = wallrayright.get_collision_normal()
-				gravity = 0
-				direction = direction + wallNormal
-		elif Input.is_action_pressed("forward") and Input.is_action_pressed("back"):
-			if wallrayback.is_colliding():
-				wallNormal = wallrayback.get_collision_normal()
-				gravity = 0
-				direction = direction + wallNormal
-		else: gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 3.5
-	else: gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 3.5
+				wallRunning = true
+				sprinting = false
+				walking = false
+				crouching = false
+				sliding = false
+				
+				if Input.is_action_just_pressed("jump"):
+					velocity.y = JUMP_VELOCITY * 1.2
+					direction = direction + (wallNormal * 2.8)
+					wallRunning = false
+				else:
+					velocity.y = 0
+			else:
+				wallRunning = false
+		else:
+			wallRunning = false
+	else:
+		wallRunning = false

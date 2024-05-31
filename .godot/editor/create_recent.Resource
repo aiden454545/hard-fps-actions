@@ -1,1 +1,3 @@
+StandardMaterial3D
+PhysicsMaterial
 WeaponResource

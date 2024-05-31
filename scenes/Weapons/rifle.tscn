@@ -1,7 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://bibwf5nnh1q3y"]
+[gd_scene load_steps=18 format=3 uid="uid://bibwf5nnh1q3y"]
 
+[ext_resource type="Script" path="res://scripts/my nodes/gunhandler.gd" id="1_b8u8h"]
 [ext_resource type="Texture2D" uid="uid://cm37idw3301fk" path="res://assets/models/anim_rigged_guns_Rifles_baseColor.png" id="1_callm"]
 [ext_resource type="Texture2D" uid="uid://uh3l3cvc87vq" path="res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png" id="2_xk015"]
+[ext_resource type="Script" path="res://scripts/weapon/WeaponInteractable.gd" id="4_r2byp"]
+[ext_resource type="PackedScene" uid="uid://dht7uukmf2x" path="res://scenes/my nodes/recoil_handler.tscn" id="5_1hp76"]
+[ext_resource type="PackedScene" uid="uid://jwfvys885la3" path="res://scenes/my nodes/ActionInputs.tscn" id="6_p4vx0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h3t4g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojp03"]
 resource_name = "Rifles"
@@ -149,7 +155,29 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fiyqm")
 
-[node name="Rifle" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_odd2j"]
+size = Vector3(0.185064, 0.712585, 2.43146)
+
+[node name="Rifle" type="RigidBody3D" node_paths=PackedStringArray("interactColliderObject", "gun", "barrel", "handle", "InteractCollider")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.253023, -0.670781)
+collision_layer = 128
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_h3t4g")
+continuous_cd = true
+script = ExtResource("1_b8u8h")
+interactColliderObject = NodePath("Rifle")
+gun = NodePath(".")
+barrel = NodePath("RayCast3D")
+handle = NodePath("Marker3D")
+InteractCollider = NodePath("Rifle/CollisionShape3D")
+damage = 12
+auto_delay = 0.1
+single_delay = 0.1
+mag_size = 30
+ammo_reserve = 120
+ammo_reserve_size = 120
+ammo = 30
+is_auto = true
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(0.273922, 0, 0, 0, 0.271201, 0.0385104, 0, -0.0385104, 0.271201, 0, -0.385077, 0.693667)
@@ -167,7 +195,7 @@ bones/1/name = "Bone.001"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, -2.20009e-16, 1.49286e-17, 1.49285e-17, 0.135086, 0.990834, -2.20009e-16, -0.990834, 0.135086, 3.82968e-16, 1.69135, -0.793836)
 bones/1/enabled = true
-bones/1/position = Vector3(3.82968e-16, 1.69135, -0.793836)
+bones/1/position = Vector3(-0.00552827, 1.69244, -0.801539)
 bones/1/rotation = Quaternion(-0.657615, 7.79638e-17, 7.79638e-17, 0.753354)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Slide"
@@ -214,7 +242,7 @@ bones/7/rotation = Quaternion(0.0704698, 3.31697e-24, -1.56474e-17, 0.997514)
 bones/7/scale = Vector3(3.65067, 3.65068, 3.65068)
 
 [node name="Slide" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(3.65068, 1.13962e-16, -8.05065e-18, -1.13962e-16, 3.61442, -0.513237, -8.05088e-18, 0.513237, 3.61442, 3.61619e-16, 1.74785, -2.30956)
+transform = Transform3D(3.65068, 1.13962e-16, -8.05065e-18, -1.13962e-16, 3.61442, -0.513237, -8.05088e-18, 0.513237, 3.61442, -0.00552827, 1.74894, -2.31726)
 bone_name = "Slide"
 bone_idx = 2
 
@@ -249,3 +277,57 @@ bone_idx = 7
 transform = Transform3D(1, 1.6431e-25, -2.06795e-25, 1.64309e-25, 1, 0, 2.06795e-25, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rv8j4")
 skeleton = NodePath("")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.254988, 0.672595)
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0513774, -1.01499)
+target_position = Vector3(0, 0, -250)
+
+[node name="Rifle" type="StaticBody3D" parent="."]
+collision_layer = 536870912
+collision_mask = 536870912
+script = ExtResource("4_r2byp")
+prompt_message = "Pickup Rifle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rifle"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0.013419, -0.194794, 0.0741272)
+shape = SubResource("BoxShape3D_odd2j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013419, -0.194794, 0.0741272)
+shape = SubResource("BoxShape3D_odd2j")
+
+[node name="RecoilHandler" parent="." node_paths=PackedStringArray("ads_point", "handle_point", "weapon") instance=ExtResource("5_1hp76")]
+ads_point = NodePath("../adsPoint")
+handle_point = NodePath("../HandlePoint")
+weapon = NodePath("..")
+ads_offset = Vector3(0, -0.156, 0)
+translate_offset = Vector3(0, -0.16, 0)
+snap = 2.0
+speed = 50.0
+
+[node name="adsPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.156228, 0.651545)
+
+[node name="HandlePoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28087, 0.651545)
+
+[node name="InputSequence" parent="." instance=ExtResource("6_p4vx0")]
+input1 = "Down"
+input2 = "Left"
+input3 = "Down"
+input4 = "Up"
+input5 = "Right"
+input6 = "Up"
+number_of_inputs = 6
+
+[connection signal="WeaponEquipped" from="." to="RecoilHandler" method="_on_weapon_equipped"]
+[connection signal="WeaponUnequipped" from="." to="RecoilHandler" method="_on_weapon_unequipped"]
+[connection signal="WeaponUnequipped" from="." to="InputSequence" method="_on_weapon_unequipped"]
+[connection signal="fired" from="." to="RecoilHandler" method="_on_fired"]
+[connection signal="reloading" from="." to="InputSequence" method="_on_reloading"]
+[connection signal="interacted" from="Rifle" to="." method="_on_interacted"]
+[connection signal="interacted" from="Rifle" to="RecoilHandler" method="_on_interacted"]
+[connection signal="InputsComplete" from="InputSequence" to="." method="_on_inputs_complete"]

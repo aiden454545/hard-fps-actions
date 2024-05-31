@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/interactable.gd" id="1_66ka4"]
 [ext_resource type="Script" path="res://scripts/chest.gd" id="1_xu1cd"]
-[ext_resource type="PackedScene" uid="uid://jwfvys885la3" path="res://scenes/ActionInputs.tscn" id="3_dak4q"]
+[ext_resource type="PackedScene" uid="uid://jwfvys885la3" path="res://scenes/my nodes/ActionInputs.tscn" id="3_dak4q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwpk0"]
 resource_name = "Material.002"
@@ -413,6 +413,6 @@ input2 = "Up"
 input3 = "Left"
 number_of_inputs = 3
 
-[connection signal="interacted" from="Chest" to="." method="_on_chest_interacted"]
-[connection signal="interacted" from="Chest" to="InputSequence" method="_on_chest_interacted"]
+[connection signal="interacted" from="Chest" to="." method="_on_interacted"]
+[connection signal="interacted" from="Chest" to="InputSequence" method="_on_interacted"]
 [connection signal="InputsComplete" from="InputSequence" to="." method="_on_input_sequence_inputs_complete"]

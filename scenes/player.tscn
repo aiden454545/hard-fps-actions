@@ -1,34 +1,56 @@
-[gd_scene load_steps=8 format=3 uid="uid://byb6tp6oemv5a"]
+[gd_scene load_steps=14 format=3 uid="uid://byb6tp6oemv5a"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2jbgd"]
 [ext_resource type="Script" path="res://scripts/InteractRay.gd" id="2_vhdd1"]
 [ext_resource type="PackedScene" uid="uid://c3x2pkrbstf6q" path="res://scenes/Labels.tscn" id="3_mpmu3"]
-[ext_resource type="Script" path="res://scenes/WeaponManager.gd" id="4_qvycm"]
+[ext_resource type="Script" path="res://scripts/weapon/weapon_sway.gd" id="4_iqx8o"]
+[ext_resource type="PackedScene" uid="uid://fsvu44kgr72v" path="res://scenes/my nodes/health.tscn" id="5_c5bmy"]
+[ext_resource type="Script" path="res://scripts/my nodes/Damageable.gd" id="8_56y3o"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mcab8"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1um2k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tg3f1"]
+height = 1.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8dj3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kl8wy"]
+size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ykrn8"]
 load_path = "res://.godot/imported/crosshair (1).png-dbb5c665bc5c01b6c1f6a052549136fc.ctex"
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2fljm"]
+radius = 0.500587
+height = 2.02366
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ahxa1"]
+radius = 0.500587
+height = 1.012
+
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_2jbgd")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_mcab8")
+[node name="standingCollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_1um2k")
+
+[node name="crouchingCollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_tg3f1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_e8dj3")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="pivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 
-[node name="InteractRay" type="RayCast3D" parent="Camera3D"]
+[node name="InteractRay" type="RayCast3D" parent="pivot/Camera3D"]
 target_position = Vector3(0, 0, -4)
+collision_mask = 536870913
 script = ExtResource("2_vhdd1")
 
-[node name="Prompt" type="Label" parent="Camera3D/InteractRay"]
+[node name="Prompt" type="Label" parent="pivot/Camera3D/InteractRay"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -45,10 +67,32 @@ text = "omg
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="neededInputs" parent="Camera3D/InteractRay" instance=ExtResource("3_mpmu3")]
+[node name="neededInputs" parent="pivot/Camera3D/InteractRay" instance=ExtResource("3_mpmu3")]
 
-[node name="WeaponManager" type="Node3D" parent="Camera3D"]
-script = ExtResource("4_qvycm")
+[node name="HandlePoint" type="Marker3D" parent="pivot/Camera3D" node_paths=PackedStringArray("marker")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347476, -0.20832, -1.0421)
+script = ExtResource("4_iqx8o")
+marker = NodePath(".")
+sway_up = Vector3(0.1, 0, 0)
+sway_down = Vector3(-0.1, 0, 0)
+sway_left = Vector3(0, 0.1, 0)
+sway_right = Vector3(0, -0.1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pivot/Camera3D/HandlePoint"]
+mesh = SubResource("BoxMesh_kl8wy")
+skeleton = NodePath("../../adsPoint")
+
+[node name="adsPoint" type="Marker3D" parent="pivot/Camera3D" node_paths=PackedStringArray("marker")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8579)
+script = ExtResource("4_iqx8o")
+marker = NodePath(".")
+sway_up = Vector3(0.025, 0, 0)
+sway_down = Vector3(-0.025, 0, 0)
+sway_left = Vector3(0, 0.025, 0)
+sway_right = Vector3(0, -0.025, 0)
+
+[node name="GunRay" type="RayCast3D" parent="pivot/Camera3D"]
+visible = false
 
 [node name="CrossHair" type="TextureRect" parent="."]
 anchors_preset = 8
@@ -80,3 +124,23 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 expand_mode = 1
+
+[node name="health" parent="." node_paths=PackedStringArray("node_to_kill") instance=ExtResource("5_c5bmy")]
+health = 10
+max_health = 10
+node_to_kill = NodePath("..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("health_node")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("8_56y3o")
+health_node = NodePath("../health")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CapsuleShape3D_2fljm")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CapsuleShape3D_ahxa1")
+
+[node name="crouchCast" type="RayCast3D" parent="."]
+target_position = Vector3(0, 1, 0)

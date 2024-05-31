@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c3x2pkrbstf6q"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xg6kx"]
-load_path = "res://.godot/imported/down arrow.png-187956cbe7738b387fad0600939b4a27.ctex"
+[ext_resource type="Script" path="res://scripts/fps.gd" id="1_xujo8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -41,5 +40,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_xg6kx")
 expand_mode = 1
+
+[node name="FpsLabel" type="Label" parent="."]
+layout_mode = 1
+offset_left = 1087.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 24.0
+text = "fps: 60"
+script = ExtResource("1_xujo8")

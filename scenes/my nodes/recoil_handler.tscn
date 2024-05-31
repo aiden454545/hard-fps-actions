@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dht7uukmf2x"]
+
+[ext_resource type="Script" path="res://scripts/my nodes/RecoilHandler.gd" id="1_bhc03"]
+
+[node name="RecoilHandler" type="Node"]
+script = ExtResource("1_bhc03")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv0yn60bol35a"]
+
+[ext_resource type="Script" path="res://scripts/my nodes/WeaponSwitcher.gd" id="1_harrg"]
+
+[node name="WeaponSwitcher" type="Node"]
+script = ExtResource("1_harrg")

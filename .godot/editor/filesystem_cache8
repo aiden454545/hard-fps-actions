@@ -1,8 +1,11 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1713202415
+::res://::1717175894
 icon.svg::CompressedTexture2D::1382299834751972792::1709873578::1709873627::1::::<><>::
 README.md::TextFile::-1::1712949040::0::1::::<><>::
-::res://addons/::1713202206
+::res://addons/::1717175894
+::res://addons/debug_draw_3d/::1717043543
+debug_draw_3d.gdextension::GDExtension::-1::1715634168::0::1::::<><>::
+README.md::TextFile::-1::1717043543::0::1::::<><>::
 ::res://addons/godot-jolt/::1713202221
 godot-jolt.gdextension::GDExtension::-1::1713202207::0::1::::<><>::
 LICENSE.txt::TextFile::-1::1713202208::0::1::::<><>::
@@ -19,8 +22,8 @@ THIRDPARTY.txt::TextFile::-1::1713202221::0::1::::<><>::
 ::res://addons/godot-jolt/macos/godot-jolt_macos_editor.framework/::1713202221
 ::res://addons/godot-jolt/macos/godot-jolt_macos_editor.framework/Resources/::1713202221
 ::res://addons/godot-jolt/macos/godot-jolt_macos_editor.framework/_CodeSignature/::1713202221
-::res://addons/godot-jolt/windows/::1713202378
-::res://addons/orchestrator/::1713202389
+::res://addons/godot-jolt/windows/::1717169874
+::res://addons/orchestrator/::1717169875
 AUTHORS.md::TextFile::-1::1712929726::0::1::::<><>::
 CHANGELOG.md::TextFile::-1::1712929726::0::1::::<><>::
 orchestrator.gdextension::GDExtension::-1::1712929726::0::1::::<><>::
@@ -31,6 +34,19 @@ Orchestrator_Logo.svg::CompressedTexture2D::1690646602428736528::1712929726::171
 ::res://addons/orchestrator/scenes/::1712929729
 dialogue_message.gd::GDScript::-1::1712929728::0::1::::<>CanvasLayer<>::
 dialogue_message.tscn::PackedScene::7647091736196143888::1712929729::0::1::::<><>::res://addons/orchestrator/scenes/dialogue_message.gd
+::res://addons/trailmesh/::1717042703
+README.md::TextFile::-1::1717042702::0::1::::<><>::
+trailmesh.gdextension::GDExtension::-1::1717042703::0::1::::<><>::
+::res://addons/trailmesh/bin/::1717169876
+::res://addons/trailmesh/bin/libtrailmesh.macos.debug.framework/::1717042702
+::res://addons/trailmesh/bin/libtrailmesh.macos.release.framework/::1717042702
+::res://addons/trailmesh/example/::1717042706
+albedo.png::CompressedTexture2D::5780881316396566194::1717042702::1717042706::1::::<><>::
+Camera.gd::GDScript::-1::1717042702::0::1::::<>Camera3D<>::
+ExampleScene.tscn::PackedScene::8604933168940356031::1717042702::0::1::::<><>::uid://ewionjtq8bvv::::res://addons/trailmesh/example/albedo.png<>uid://bpcblxgxor0ud::::res://addons/trailmesh/example/normal.png<>res://addons/trailmesh/example/Camera.gd
+normal.png::CompressedTexture2D::3859124183528302275::1717042702::1717042706::1::::<><>::
+::res://addons/trailmesh/icons/::1717042706
+TrailEmitter.svg::CompressedTexture2D::5339382023466296492::1717042702::1717042706::1::::<><>::
 ::res://addons/VPainter/::1712949043
 plugin.cfg::TextFile::-1::1712949040::0::1::::<><>::
 Plugin.gd::GDScript::-1::1712949040::0::1::::<>EditorPlugin<>::
@@ -56,14 +72,17 @@ icon_fill.svg::CompressedTexture2D::8563857457618938647::1712949041::1712949046:
 icon_pick.svg::CompressedTexture2D::2571901394064897724::1712949042::1712949046::1::::<><>::
 icon_select.svg::CompressedTexture2D::1921076289734722960::1712949042::1712949046::1::::<><>::
 icon_vpainter.svg::CompressedTexture2D::3053251153760435341::1712949042::1712949046::1::::<><>::
-::res://assets/::1712929541
-::res://assets/images/::1712685106
+::res://assets/::1717175928
+new_physics_material.tres::PhysicsMaterial::1719127309498718531::1717032988::0::1::::<><>::
+::res://assets/images/::1717030241
 crosshair (1).png::CompressedTexture2D::8453826655637820931::1710458261::1710458293::1::::<><>::
 down arrow.png::CompressedTexture2D::3460423983415425116::1712684743::1712685106::1::::<><>::
 left arrow arrow.png::CompressedTexture2D::7016064902601678312::1712684743::1712685106::1::::<><>::
 right arrow.png::CompressedTexture2D::411500679955443787::1712684743::1712685106::1::::<><>::
+Screenshot_2023-11-27_183131.png::CompressedTexture2D::4084494832967625648::1717030212::1717030241::1::::<><>::
 up arrow.png::CompressedTexture2D::6246425039952079921::1712684743::1712685106::1::::<><>::
-::res://assets/images/textures/::1710458290
+::res://assets/images/textures/::1717030240
+::res://assets/materials/::1717176326
 ::res://assets/models/::1713117427
 anim_rigged_guns.glb::PackedScene::1398177123458443332::1712081648::1712081651::1::::<><>::uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png
 anim_rigged_guns_Image.png::CompressedTexture2D::5921224723415616268::1712081648::1712081648::1::::<><>::
@@ -71,39 +90,160 @@ anim_rigged_guns_Rifles_baseColor.png::CompressedTexture2D::5674867491142400164:
 anim_rigged_guns_Rifles_metallicRoughness.png::CompressedTexture2D::1419948711271045154::1712081649::1712081653::1::::<><>::
 Box Boy.glb::PackedScene::5635857770981584372::1713117415::1713117427::1::::<><>::
 chest.glb::PackedScene::2819074573322663006::1710352222::1710352478::1::::<><>::
-::res://assets/textures/::1712685105
-::res://images/::1712949046
-logo.png::CompressedTexture2D::228581863698764109::1712949043::1712949046::1::::<><>::
+::res://assets/textures/::1717175894
+::res://assets/textures/kenney_prototype_textures/::1717175884
+LICENSE.txt::TextFile::-1::1717175882::0::1::::<><>::
+::res://assets/textures/kenney_prototype_textures/dark/::1717175994
+texture_01.png::CompressedTexture2D::3808848527763471528::1717175882::1717175899::1::::<><>::
+texture_02.png::CompressedTexture2D::3935603058932923573::1717175882::1717175899::1::::<><>::
+texture_03.png::CompressedTexture2D::8513904790877982720::1717175882::1717175899::1::::<><>::
+texture_04.png::CompressedTexture2D::2550778766343896593::1717175882::1717175899::1::::<><>::
+texture_05.png::CompressedTexture2D::3957752282623540430::1717175882::1717175899::1::::<><>::
+texture_06.png::CompressedTexture2D::5424899054106230390::1717175882::1717175899::1::::<><>::
+texture_07.png::CompressedTexture2D::3704401029340520687::1717175882::1717175994::1::::<><>::
+texture_08.png::CompressedTexture2D::2209075029993114988::1717175882::1717175899::1::::<><>::
+texture_09.png::CompressedTexture2D::7666046207641308641::1717175882::1717175899::1::::<><>::
+texture_10.png::CompressedTexture2D::1626785755710153340::1717175882::1717176348::1::::<><>::
+texture_11.png::CompressedTexture2D::2864595837022974620::1717175882::1717175899::1::::<><>::
+texture_12.png::CompressedTexture2D::7216190792152277223::1717175883::1717175899::1::::<><>::
+texture_13.png::CompressedTexture2D::8041032440980175234::1717175883::1717175899::1::::<><>::
+::res://assets/textures/kenney_prototype_textures/green/::1717175900
+texture_01.png::CompressedTexture2D::3417079229125538711::1717175883::1717175898::1::::<><>::
+texture_02.png::CompressedTexture2D::6912811208799843619::1717175883::1717175898::1::::<><>::
+texture_03.png::CompressedTexture2D::2105003833914842777::1717175883::1717175898::1::::<><>::
+texture_04.png::CompressedTexture2D::7138909237793849060::1717175883::1717175898::1::::<><>::
+texture_05.png::CompressedTexture2D::6850352763497480454::1717175883::1717175898::1::::<><>::
+texture_06.png::CompressedTexture2D::2765862005944515956::1717175883::1717175898::1::::<><>::
+texture_07.png::CompressedTexture2D::1006031871158628922::1717175883::1717175900::1::::<><>::
+texture_08.png::CompressedTexture2D::7951829649784315884::1717175883::1717175900::1::::<><>::
+texture_09.png::CompressedTexture2D::125994955374015821::1717175883::1717175900::1::::<><>::
+texture_10.png::CompressedTexture2D::6495422920203752307::1717175883::1717175900::1::::<><>::
+texture_11.png::CompressedTexture2D::2122503590800449183::1717175883::1717175900::1::::<><>::
+texture_12.png::CompressedTexture2D::4837430832289186456::1717175883::1717175900::1::::<><>::
+texture_13.png::CompressedTexture2D::878710129767403944::1717175883::1717175900::1::::<><>::
+::res://assets/textures/kenney_prototype_textures/light/::1717175900
+texture_01.png::CompressedTexture2D::1607510178210065440::1717175883::1717175900::1::::<><>::
+texture_02.png::CompressedTexture2D::4893589481726618842::1717175883::1717175900::1::::<><>::
+texture_03.png::CompressedTexture2D::2062287821043033572::1717175883::1717175900::1::::<><>::
+texture_04.png::CompressedTexture2D::7241190217442996784::1717175883::1717175900::1::::<><>::
+texture_05.png::CompressedTexture2D::6212285542109664500::1717175883::1717175900::1::::<><>::
+texture_06.png::CompressedTexture2D::6193208950384948617::1717175883::1717175900::1::::<><>::
+texture_07.png::CompressedTexture2D::2974224767498985937::1717175883::1717175900::1::::<><>::
+texture_08.png::CompressedTexture2D::8810876130889175649::1717175883::1717175899::1::::<><>::
+texture_09.png::CompressedTexture2D::4735223350526064387::1717175883::1717175899::1::::<><>::
+texture_10.png::CompressedTexture2D::2468503315567846044::1717175883::1717175899::1::::<><>::
+texture_11.png::CompressedTexture2D::497157615943396028::1717175883::1717175899::1::::<><>::
+texture_12.png::CompressedTexture2D::4666613342227664596::1717175883::1717175899::1::::<><>::
+texture_13.png::CompressedTexture2D::8305861725353042144::1717175883::1717175899::1::::<><>::
+::res://assets/textures/kenney_prototype_textures/orange/::1717175897
+texture_01.png::CompressedTexture2D::7723694565691514559::1717175883::1717175897::1::::<><>::
+texture_02.png::CompressedTexture2D::3420070665856039275::1717175883::1717175897::1::::<><>::
+texture_03.png::CompressedTexture2D::3829036560146487233::1717175883::1717175897::1::::<><>::
+texture_04.png::CompressedTexture2D::4031386330855277147::1717175883::1717175897::1::::<><>::
+texture_05.png::CompressedTexture2D::4230583580891958289::1717175883::1717175897::1::::<><>::
+texture_06.png::CompressedTexture2D::417842349385878316::1717175883::1717175897::1::::<><>::
+texture_07.png::CompressedTexture2D::7306315110913462917::1717175884::1717175897::1::::<><>::
+texture_08.png::CompressedTexture2D::1034790848911251819::1717175884::1717175897::1::::<><>::
+texture_09.png::CompressedTexture2D::3268145239756235451::1717175884::1717175897::1::::<><>::
+texture_10.png::CompressedTexture2D::7367216629676746887::1717175884::1717175897::1::::<><>::
+texture_11.png::CompressedTexture2D::7893087187392688973::1717175884::1717175897::1::::<><>::
+texture_12.png::CompressedTexture2D::3342879054550450366::1717175884::1717175897::1::::<><>::
+texture_13.png::CompressedTexture2D::2928971464334039864::1717175884::1717175897::1::::<><>::
+::res://assets/textures/kenney_prototype_textures/purple/::1717175898
+texture_01.png::CompressedTexture2D::2263971426163759307::1717175884::1717175897::1::::<><>::
+texture_02.png::CompressedTexture2D::963456146703780250::1717175884::1717175897::1::::<><>::
+texture_03.png::CompressedTexture2D::3026956298440334223::1717175884::1717175896::1::::<><>::
+texture_04.png::CompressedTexture2D::8212650622067577717::1717175884::1717175896::1::::<><>::
+texture_05.png::CompressedTexture2D::1615448924975799987::1717175884::1717175896::1::::<><>::
+texture_06.png::CompressedTexture2D::2758261237217527971::1717175884::1717175896::1::::<><>::
+texture_07.png::CompressedTexture2D::4123174224151711418::1717175884::1717175898::1::::<><>::
+texture_08.png::CompressedTexture2D::5169071155552449644::1717175884::1717175898::1::::<><>::
+texture_09.png::CompressedTexture2D::4078589449168359039::1717175884::1717175898::1::::<><>::
+texture_10.png::CompressedTexture2D::4566727111622363401::1717175884::1717175898::1::::<><>::
+texture_11.png::CompressedTexture2D::1178526800100079730::1717175884::1717175898::1::::<><>::
+texture_12.png::CompressedTexture2D::4789711200808477702::1717175884::1717175898::1::::<><>::
+texture_13.png::CompressedTexture2D::4932320904256054638::1717175884::1717175898::1::::<><>::
+::res://assets/textures/kenney_prototype_textures/red/::1717175898
+texture_01.png::CompressedTexture2D::8016457042831833901::1717175884::1717175898::1::::<><>::
+texture_02.png::CompressedTexture2D::4146428871854576139::1717175884::1717175898::1::::<><>::
+texture_03.png::CompressedTexture2D::8784056534007263627::1717175884::1717175898::1::::<><>::
+texture_04.png::CompressedTexture2D::8393794510530178988::1717175884::1717175898::1::::<><>::
+texture_05.png::CompressedTexture2D::3847170753063506153::1717175884::1717175897::1::::<><>::
+texture_06.png::CompressedTexture2D::4357613592765634957::1717175884::1717175897::1::::<><>::
+texture_07.png::CompressedTexture2D::5341093356825008539::1717175884::1717175897::1::::<><>::
+texture_08.png::CompressedTexture2D::3533490471857186438::1717175884::1717175897::1::::<><>::
+texture_09.png::CompressedTexture2D::3948081078247066945::1717175885::1717175897::1::::<><>::
+texture_10.png::CompressedTexture2D::3478148271013689072::1717175885::1717175897::1::::<><>::
+texture_11.png::CompressedTexture2D::192004914978819605::1717175885::1717175897::1::::<><>::
+texture_12.png::CompressedTexture2D::5803959837844347134::1717175885::1717175897::1::::<><>::
+texture_13.png::CompressedTexture2D::8355520190635370483::1717175885::1717175897::1::::<><>::
+::res://examples_dd3d/::1715634175
+addon_icon.gd::GDScript::-1::1715634170::0::1::::<>Node3D<>::
+addon_icon.tscn::PackedScene::1848058559946837243::1715634170::0::1::::<><>::res://examples_dd3d/addon_icon.gd
+DebugDrawDemoScene.gd::GDScript::-1::1715634170::0::1::::<>Node3D<>::
+DebugDrawDemoScene.tscn::PackedScene::6775414103925589177::1715634170::0::1::::<><>::res://examples_dd3d/DebugDrawDemoScene.gd<>uid://erdgllynwqkw::::res://examples_dd3d/Roboto-Bold.ttf<>res://examples_dd3d/demo_camera_movement.gd<>res://examples_dd3d/demo_music_visualizer.gd<>res://examples_dd3d/demo_settings_panel.gd<>res://examples_dd3d/demo_web_docs_version_select.gd
+DebugDrawDemoSceneCS.tscn::PackedScene::1312074525702841298::1715634170::0::1::::<><>::uid://c3sccy6x0ht5j::::res://examples_dd3d/DebugDrawDemoScene.tscn<>res://examples_dd3d/DebugDrawDemoSceneCS.cs
+demo_camera_movement.gd::GDScript::-1::1715634170::0::1::::<>Camera3D<>::
+demo_music_visualizer.gd::GDScript::-1::1715634170::0::1::::<>VBoxContainer<>::
+demo_settings_panel.gd::GDScript::-1::1715634170::0::1::::<>Control<>::
+demo_web_docs_version_select.gd::GDScript::-1::1715634170::0::1::::<>HBoxContainer<>::
+Roboto-Bold.ttf::FontFile::316043257971280746::1715634170::1715634175::1::::<><>::
+VisualizerAudioBus.tres::AudioBusLayout::2284711204667567248::1715634170::0::1::::<><>::
 ::res://Resources/::1712154027
-::res://Resources/WeaponResources/::1712155243
-AAC_HB.tres::Resource/Resource::7777982627089204689::1712155243::0::1::::<><>::res://scripts/weapon_resource.gd
-FN_57.tres::Resource/Resource::2961154968403155831::1712154462::0::1::::<><>::res://scripts/weapon_resource.gd
-Rifle.tres::Resource/Resource::6570810938764742871::1712155243::0::1::::<><>::res://scripts/weapon_resource.gd
-::res://scenes/::1713202372
-ActionInputs.tscn::PackedScene::677458279878984552::1713202370::0::1::::<><>::res://scripts/ActionInputs.gd
-Box Boy RagDoll.tscn::PackedScene::8516027182265946761::1713202372::0::1::::<><>::res://scenes/Skeleton3D.gd
-Box Boy.tscn::PackedScene::5071181719914665304::1713202371::0::1::::<><>::
-chest.tscn::PackedScene::9007645884700997359::1713202369::0::1::::<><>::res://scripts/interactable.gd<>res://scripts/chest.gd<>uid://jwfvys885la3::::res://scenes/ActionInputs.tscn
-Labels.tscn::PackedScene::6787276374873171290::1713202370::0::1::::<><>::
-player.tscn::PackedScene::4074934302001018736::1713202368::0::1::::<><>::res://scripts/player.gd<>res://scripts/InteractRay.gd<>uid://c3x2pkrbstf6q::::res://scenes/Labels.tscn<>res://scenes/WeaponManager.gd
-signals.tscn::PackedScene::5696518335075978195::1710535223::0::1::::<><>::res://scripts/signals.gd
-Skeleton3D.gd::GDScript::-1::1713195257::0::1::::<>Skeleton3D<>::
-test_world.tscn::PackedScene::3858519556803132904::1713202369::0::1::::<><>::uid://byb6tp6oemv5a::::res://scenes/player.tscn<>uid://d1lmu2d1asdcp::::res://scenes/chest.tscn<>uid://ceirvfb2e4wqy::::res://scenes/Box Boy.tscn<>res://scenes/Skeleton3D.gd
+::res://Resources/WeaponResources/::1717095119
+AAC_HB.tres::Resource/Resource::7777982627089204689::1717095119::0::1::::<><>::res://scripts/weapon/weapon_resource.gd
+FN_57.tres::Resource/Resource::2961154968403155831::1717095119::0::1::::<><>::res://scripts/weapon/weapon_resource.gd
+Rifle.tres::Resource/Resource::6570810938764742871::1717095119::0::1::::<><>::res://scripts/weapon/weapon_resource.gd
+::res://scenes/::1717175236
+Box Boy RagDoll.tscn::PackedScene::8516027182265946761::1717175235::0::1::::<><>::res://scenes/Skeleton3D.gd<>res://scripts/my nodes/Damageable.gd<>res://scenes/Box Boy.gd<>uid://fsvu44kgr72v::::res://scenes/my nodes/health.tscn
+Box Boy.gd::GDScript::-1::1717103057::0::1::::<>Node3D<>::
+Box Boy.tscn::PackedScene::5071181719914665304::1714173340::0::1::::<><>::
+bullet.tscn::PackedScene::8686119159818161566::1717175235::0::1::::<><>::res://scripts/weapon/bullet.gd
+chest.tscn::PackedScene::9007645884700997359::1717028014::0::1::::<><>::res://scripts/interactable.gd<>res://scripts/chest.gd<>uid://jwfvys885la3::::res://scenes/my nodes/ActionInputs.tscn
+hitparticles.tscn::PackedScene::8310924923030778796::1717175236::0::1::::<><>::res://scripts/Effects/Particles/HitParticles.gd
+Labels.tscn::PackedScene::6787276374873171290::1717175235::0::1::::<><>::res://scripts/fps.gd
+player.tscn::PackedScene::4074934302001018736::1717175234::0::1::::<><>::res://scripts/player.gd<>res://scripts/InteractRay.gd<>uid://c3x2pkrbstf6q::::res://scenes/Labels.tscn<>res://scripts/weapon/weapon_sway.gd<>uid://fsvu44kgr72v::::res://scenes/my nodes/health.tscn<>res://scripts/my nodes/Damageable.gd
+signals.tscn::PackedScene::5696518335075978195::1717095152::0::1::::<><>::res://scripts/auto loads/signals.gd
+Skeleton3D.gd::GDScript::-1::1717041065::0::1::::<>Skeleton3D<>::
+test_world.tscn::PackedScene::3858519556803132904::1717175234::0::1::::<><>::uid://byb6tp6oemv5a::::res://scenes/player.tscn<>uid://yq01mu7wref8::::res://assets/new_physics_material.tres<>uid://d1lmu2d1asdcp::::res://scenes/chest.tscn<>uid://ceirvfb2e4wqy::::res://scenes/Box Boy.tscn<>uid://dtlhyul30vjor::::res://scenes/Box Boy RagDoll.tscn<>uid://bibwf5nnh1q3y::::res://scenes/Weapons/rifle.tscn<>uid://bcn8kfg15ag35::::res://scenes/Weapons/fn_five_seven_139.tscn
 WeaponManager.gd::GDScript::-1::1712154852::0::1::::<>Node3D<>::
 ::res://scenes/interaction/::1710460345
 interactable.tscn::PackedScene::2506300837374273511::1710457398::0::1::::<><>::res://scripts/interactions/interactable.gd
 interactor.tscn::PackedScene::3222829578636931879::1710460345::0::1::::<><>::res://scripts/interactor.gd
 player_interactor.tscn::PackedScene::5080852308652307073::1710457398::0::1::::<><>::uid://bl6fsdlqehm3h::::res://scenes/interaction/interactor.tscn<>res://scripts/interactions/PlayerInteractor.gd
-::res://scenes/Weapons/::1713202371
-aac_honey_badger_222.tscn::PackedScene::6721520622538502934::1713202371::0::1::::<><>::uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png
-fn_five_seven_139.tscn::PackedScene::2555657073579281422::1713202371::0::1::::<><>::uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png
-rifle.tscn::PackedScene::2951342109745824560::1713202370::0::1::::<><>::uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png
-WeaponManager.tscn::PackedScene::8580779565577694167::1712930470::0::1::::<><>::uid://bibwf5nnh1q3y::::res://scenes/Weapons/rifle.tscn<>uid://c207py2c1226u::::res://scenes/Weapons/aac_honey_badger_222.tscn<>uid://bcn8kfg15ag35::::res://scenes/Weapons/fn_five_seven_139.tscn
-::res://scripts/::1712930469
-ActionInputs.gd::GDScript::-1::1712688288::0::1::::<>Node<>::
-chest.gd::GDScript::-1::1711827538::0::1::::<>Node3D<>::
-interactable.gd::GDScript::-1::1710517481::0::1::::Interactable<>Node3D<>::
-InteractRay.gd::GDScript::-1::1710535220::0::1::::<>RayCast3D<>::
-player.gd::GDScript::-1::1712930469::0::1::::<>CharacterBody3D<>::
+::res://scenes/my nodes/::1717094837
+ActionInputs.tscn::PackedScene::677458279878984552::1717028014::0::1::::<><>::res://scripts/my nodes/ActionInputs.gd
+gunhandeler.tscn::PackedScene::8981350083267767082::1715614072::0::1::::<><>::res://scripts/my nodes/gunhandler.gd
+health.tscn::PackedScene::389415358928992147::1714173341::0::1::::<><>::res://scripts/health.gd
+recoil_handler.tscn::PackedScene::6653794861580737::1717028016::0::1::::<><>::res://scripts/my nodes/RecoilHandler.gd
+weapon_switcher.tscn::PackedScene::3913477933999009028::1717094837::0::1::::<><>::res://scripts/my nodes/WeaponSwitcher.gd
+::res://scenes/Weapons/::1717175235
+aac_honey_badger_222.tscn::PackedScene::6721520622538502934::1717094837::0::1::::<><>::uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png
+fn_five_seven_139.tscn::PackedScene::2555657073579281422::1717175235::0::1::::<><>::uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>res://scripts/my nodes/gunhandler.gd<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png<>res://scripts/weapon/WeaponInteractable.gd<>uid://dht7uukmf2x::::res://scenes/my nodes/recoil_handler.tscn<>uid://jwfvys885la3::::res://scenes/my nodes/ActionInputs.tscn
+rifle.tscn::PackedScene::2951342109745824560::1717175235::0::1::::<><>::res://scripts/my nodes/gunhandler.gd<>uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png<>res://scripts/weapon/WeaponInteractable.gd<>uid://dht7uukmf2x::::res://scenes/my nodes/recoil_handler.tscn<>uid://jwfvys885la3::::res://scenes/my nodes/ActionInputs.tscn
+WeaponManager.tscn::PackedScene::8580779565577694167::1717094837::0::1::::<><>::uid://bibwf5nnh1q3y::::res://scenes/Weapons/rifle.tscn<>uid://c207py2c1226u::::res://scenes/Weapons/aac_honey_badger_222.tscn<>uid://bcn8kfg15ag35::::res://scenes/Weapons/fn_five_seven_139.tscn
+::res://scripts/::1717175234
+chest.gd::GDScript::-1::1715997735::0::1::::<>Node3D<>::
+fps.gd::GDScript::-1::1717045246::0::1::::<>Label<>::
+health.gd::GDScript::-1::1713370378::0::1::::Health_System<>Node<>::
+interactable.gd::GDScript::-1::1714172424::0::1::::Interactable<>Node3D<>::
+InteractRay.gd::GDScript::-1::1717041403::0::1::::<>RayCast3D<>::
+player.gd::GDScript::-1::1717175234::0::1::::<>CharacterBody3D<>::
+::res://scripts/auto loads/::1717104281
+Preload.gd::GDScript::-1::1717095955::0::1::::<>Node<>::
 signals.gd::GDScript::-1::1710530591::0::1::::<>Node<>::
+::res://scripts/Effects/::1717099108
+::res://scripts/Effects/Particles/::1717101735
+HitParticles.gd::GDScript::-1::1717101735::0::1::::<>GPUParticles3D<>::
+::res://scripts/my nodes/::1717175146
+ActionInputs.gd::GDScript::-1::1717102375::0::1::::<>Node<>::
+Damageable.gd::GDScript::-1::1713368723::0::1::::Damageable<>StaticBody3D<>::
+gunhandler.gd::GDScript::-1::1717100454::0::1::::<>RigidBody3D<>::
+RecoilHandler.gd::GDScript::-1::1717175146::0::1::::<>Node<>::
+WeaponSwitcher.gd::GDScript::-1::1715991913::0::1::::<>Node<>::
+::res://scripts/weapon/::1717175234
+bullet.gd::GDScript::-1::1717175234::0::1::::<>Node3D<>::
+weaponcastgyro.gd::GDScript::-1::1713370966::0::1::::<>Node3D<>::
+WeaponInteractable.gd::GDScript::-1::1715990663::0::1::::WeaponInteractable<>Node3D<>::
 weapon_resource.gd::GDScript::-1::1712154522::0::1::::WeaponResource<>Resource<>::
+weapon_sway.gd::GDScript::-1::1717091996::0::1::::<>Node<>::

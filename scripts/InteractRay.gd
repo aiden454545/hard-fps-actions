@@ -2,10 +2,10 @@ extends RayCast3D
 
 @onready var prompt = $Prompt
 var is_interacting = false
+var WeaponEquippedInSlot = false
 
 func _ready():
 	add_exception(owner)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -18,4 +18,8 @@ func _process(delta):
 			
 			if Input.is_action_just_pressed(detected.prompt_action):
 				detected.interact(owner)
-
+		if detected is WeaponInteractable and WeaponEquippedInSlot == false:
+			prompt.text = detected.get_prompt()
+			
+			if Input.is_action_just_pressed(detected.prompt_action):
+				detected.interact(owner)

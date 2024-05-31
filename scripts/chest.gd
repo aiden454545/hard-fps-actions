@@ -26,7 +26,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_end"):
 		is_interacting = false
 
-func _on_chest_interacted(body):
+func _on_interacted(body):
 	if is_open == false:
 		is_interacting = true
 
@@ -35,3 +35,5 @@ func _on_chest_interacted(body):
 func _on_input_sequence_inputs_complete():
 	if is_interacting == true:
 		open()
+
+

@@ -1,7 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcn8kfg15ag35"]
+[gd_scene load_steps=18 format=3 uid="uid://bcn8kfg15ag35"]
 
 [ext_resource type="Texture2D" uid="uid://cm37idw3301fk" path="res://assets/models/anim_rigged_guns_Rifles_baseColor.png" id="1_fe6n3"]
+[ext_resource type="Script" path="res://scripts/my nodes/gunhandler.gd" id="1_qxrv6"]
 [ext_resource type="Texture2D" uid="uid://uh3l3cvc87vq" path="res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png" id="2_x7o5g"]
+[ext_resource type="Script" path="res://scripts/weapon/WeaponInteractable.gd" id="4_jr42n"]
+[ext_resource type="PackedScene" uid="uid://dht7uukmf2x" path="res://scenes/my nodes/recoil_handler.tscn" id="5_spl7b"]
+[ext_resource type="PackedScene" uid="uid://jwfvys885la3" path="res://scenes/my nodes/ActionInputs.tscn" id="6_laghe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojp03"]
 resource_name = "Rifles"
@@ -147,7 +151,26 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xox2x")
 
-[node name="FN FIVE-SEVEN_139" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mm0wd"]
+size = Vector3(0.0864258, 0.439209, 0.594727)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gru83"]
+size = Vector3(0.0913086, 0.431519, 0.603607)
+
+[node name="FN FIVE-SEVEN_139" type="RigidBody3D" node_paths=PackedStringArray("interactColliderObject", "gun", "barrel", "InteractCollider")]
+collision_layer = 128
+collision_mask = 3
+script = ExtResource("1_qxrv6")
+interactColliderObject = NodePath("Pistol")
+gun = NodePath(".")
+barrel = NodePath("RayCast3D")
+InteractCollider = NodePath("Pistol/CollisionShape3D")
+damage = 20
+single_delay = 0.5
+mag_size = 15
+ammo_reserve = 90
+ammo_reserve_size = 90
+ammo = 15
 
 [node name="Armature_002" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.270358, 0.198697)
@@ -245,3 +268,54 @@ bone_idx = 7
 [node name="Base_002" type="MeshInstance3D" parent="Armature_002/Skeleton3D/Base_002"]
 mesh = SubResource("ArrayMesh_jeiii")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00415039, -0.11853, -0.00830078)
+shape = SubResource("BoxShape3D_mm0wd")
+
+[node name="Pistol" type="StaticBody3D" parent="."]
+collision_layer = 536870912
+collision_mask = 536870912
+script = ExtResource("4_jr42n")
+prompt_message = "Pickup Pistol"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pistol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00732422, -0.109924, -0.00880432)
+shape = SubResource("BoxShape3D_gru83")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0447103, -0.282085)
+target_position = Vector3(0, 0, -250)
+
+[node name="AdsPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0834831, 0.267292)
+
+[node name="HandlePoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.181711, 0.188102)
+
+[node name="RecoilHandler" parent="." node_paths=PackedStringArray("ads_point", "handle_point", "weapon") instance=ExtResource("5_spl7b")]
+ads_point = NodePath("../AdsPoint")
+handle_point = NodePath("../HandlePoint")
+weapon = NodePath("..")
+ads_offset = Vector3(0, -0.083, -0.267)
+translate_offset = Vector3(0, -0.09, 0)
+snap = 2.0
+speed = 50.0
+
+[node name="InputSequence" parent="." instance=ExtResource("6_laghe")]
+input1 = "Down"
+input2 = "Left"
+input3 = "Down"
+input4 = "Up"
+input5 = "Right"
+input6 = "Up"
+number_of_inputs = 6
+
+[connection signal="WeaponEquipped" from="." to="RecoilHandler" method="_on_weapon_equipped"]
+[connection signal="WeaponUnequipped" from="." to="RecoilHandler" method="_on_weapon_unequipped"]
+[connection signal="WeaponUnequipped" from="." to="InputSequence" method="_on_weapon_unequipped"]
+[connection signal="fired" from="." to="RecoilHandler" method="_on_fired"]
+[connection signal="reloading" from="." to="InputSequence" method="_on_reloading"]
+[connection signal="interacted" from="Pistol" to="." method="_on_interacted"]
+[connection signal="interacted" from="Pistol" to="RecoilHandler" method="_on_interacted"]
+[connection signal="InputsComplete" from="InputSequence" to="." method="_on_inputs_complete"]

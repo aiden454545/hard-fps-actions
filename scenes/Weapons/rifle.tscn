@@ -165,6 +165,7 @@ collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_h3t4g")
 continuous_cd = true
 script = ExtResource("1_b8u8h")
+WeaponName = "Rifle"
 interactColliderObject = NodePath("Rifle")
 gun = NodePath(".")
 barrel = NodePath("RayCast3D")

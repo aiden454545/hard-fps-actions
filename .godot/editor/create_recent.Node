@@ -1,7 +1,8 @@
-Label
-HBoxContainer
-VBoxContainer
+AnimationPlayer
 Node3D
+Label
+VBoxContainer
+HBoxContainer
 CSGCombiner3D
 CSGBox3D
 RayCast3D

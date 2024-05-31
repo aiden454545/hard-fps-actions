@@ -42,8 +42,8 @@ func _process(delta):
 		ads_point.top_level = true
 		handle_point.top_level = true
 		
-		player_handle_point = player.get_node("pivot/Camera3D/HandlePoint")
-		player_ads_point = player.get_node("pivot/Camera3D/adsPoint")
+		player_handle_point = player.get_node("head/pivot/Camera3D/HandlePoint")
+		player_ads_point = player.get_node("head/pivot/Camera3D/adsPoint")
 		
 		if Input.is_action_pressed("alt fire"):
 			current_point = ads_point

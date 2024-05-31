@@ -2,6 +2,11 @@ extends RigidBody3D
 
 @onready var bullet = preload("res://scenes/bullet.tscn")
 
+@onready var ammoLabel = Labels.get_node("VBoxContainer/ammoLabel")
+@onready var WeapponNameLabel = Labels.get_node("VBoxContainer/weaponName")
+
+@export var WeaponName: String = ""
+
 @export var interactColliderObject: StaticBody3D
 @export var gun: RigidBody3D
 @export var barrel: RayCast3D
@@ -39,6 +44,8 @@ var player
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if eqquiped == true:
+		ammoLabel.text = str(ammo) + "/" + str(ammo_reserve)
+		WeapponNameLabel.text = WeaponName
 		#self.global_transform = player.get_node("Camera3D/HandlePoint").global_transform
 		self.set_gravity_scale(0)
 		if Input.is_action_just_pressed("reload") and is_reloading == false and not ammo == mag_size:
@@ -107,6 +114,8 @@ func _on_interacted(body):
 
 func drop():
 	if Input.is_action_just_pressed("drop"):
+		ammoLabel.text = ""
+		WeapponNameLabel.text = ""
 		InteractCollider.disabled = false
 		emit_signal("WeaponUnequipped")
 		eqquiped = false

@@ -1,6 +1,6 @@
 extends Node
 
-var mouse_move: Vector3
+var mouse_move = Vector2.ZERO
 var sway_trheshold = 5
 var sway_lerp = 5
 
@@ -24,7 +24,7 @@ func _input(event):
 
 
 func _process(delta):
-	if mouse_move != null:
+	if mouse_move != Vector2.ZERO:
 		if mouse_move.y > sway_trheshold:
 			marker.rotation = marker.rotation.lerp(sway_up, sway_lerp * delta)
 		elif mouse_move.y < - sway_trheshold:

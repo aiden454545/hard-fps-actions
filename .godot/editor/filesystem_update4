@@ -1,12 +1,13 @@
-res://scenes/player.tscn
-res://scripts/player.gd
-res://scenes/test_world.tscn
+res://scenes/Labels.tscn
+res://assets/materials/defaultKenneyDark.tres
+res://scenes/Weapons/fn_five_seven_139.tscn
+res://scripts/my nodes/gunhandler.gd
 res://scenes/Weapons/rifle.tscn
+res://scenes/player.tscn
+res://scenes/test_world.tscn
 res://scenes/Box Boy RagDoll.tscn
 res://scenes/bullet.tscn
-res://scenes/Weapons/fn_five_seven_139.tscn
-res://scenes/Labels.tscn
 res://scenes/hitparticles.tscn
+res://scripts/weapon/weapon_sway.gd
+res://scripts/player.gd
 res://scripts/my nodes/RecoilHandler.gd
-res://scripts/weapon/bullet.gd
-res://assets/materials/defaultKenneyDark.tres

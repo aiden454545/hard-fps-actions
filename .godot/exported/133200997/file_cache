@@ -1,0 +1,35 @@
+res://addons/orchestrator/scenes/dialogue_message.tscn::dd278eae6924193963bf3d1c8ed9627e::1712929729::res://.godot/exported/133200997/export-8b0ec1153cbe43333cd0557854f0cb41-dialogue_message.scn
+res://addons/trailmesh/example/ExampleScene.tscn::60e2796d4979f30ebe5c21950737f8bc::1717042702::res://.godot/exported/133200997/export-7fe57e38846b2f8c6bc73502b172fc5a-ExampleScene.scn
+res://addons/VPainter/res/brush_cursor/BrushCursor.tscn::b4e548ce5f3021a938746a60a43c4bb2::1712949040::res://.godot/exported/133200997/export-a452816b424bc5e3ac2369e76a544fb6-BrushCursor.scn
+res://addons/VPainter/res/brush_cursor/MTL_BrushCursor.tres::97bfbcdda10ed4d8f3bd3199be64a745::1712949040::res://.godot/exported/133200997/export-781b4c2fecd84cf7ee2abddf2081d89a-MTL_BrushCursor.res
+res://addons/VPainter/vpainter_activate_button.tscn::8b1f5081f5b3647fb1332d4d0de69beb::1712949042::res://.godot/exported/133200997/export-9c57438fc709a5d7954fc55448dbc9f7-vpainter_activate_button.scn
+res://addons/VPainter/vpainter_ui.tscn::f055e3bf48e650d86d7bc6d396a1b642::1712949043::res://.godot/exported/133200997/export-ae7be5339e5cc12408edb5df61f35c40-vpainter_ui.scn
+res://assets/materials/defaultKenneyDark.tres::dc97ff2e0a416c17af9f9bc3f6a8cb7e::1717181237::res://.godot/exported/133200997/export-ac9494a00f1c7d66e6833100b4e7648e-defaultKenneyDark.res
+res://assets/new_physics_material.tres::367525ba7711e459f4dbd4d8b785c762::1717032988::res://.godot/exported/133200997/export-17ce6805059478d89058c137bd893ede-new_physics_material.res
+res://examples_dd3d/addon_icon.tscn::269402f9383783363f6104a00698125f::1715634170::res://.godot/exported/133200997/export-e7de4a5fa3dad1fa22f4b34ade96ef28-addon_icon.scn
+res://examples_dd3d/DebugDrawDemoScene.tscn::1c99167d00f1a7fe2ac950d8e36d1dcd::1715634170::res://.godot/exported/133200997/export-3f6dfedcd5ab4046d211567bf6df0470-DebugDrawDemoScene.scn
+res://examples_dd3d/DebugDrawDemoSceneCS.tscn::f5f66a03210a1d7123a26867ba1a7a0f::1715634170::res://.godot/exported/133200997/export-ddb3131f8faccbc76d84042100d0a082-DebugDrawDemoSceneCS.scn
+res://examples_dd3d/VisualizerAudioBus.tres::34147a575956fe3aa0449a8dacce18ba::1715634170::res://.godot/exported/133200997/export-9aea7a5946d3b0c2d9d1e1b0c1a72c60-VisualizerAudioBus.res
+res://Resources/WeaponResources/AAC_HB.tres::d5d3ebeffd2dc3181182e9d570a3585e::1717095119::res://.godot/exported/133200997/export-e4d13816eeafc396b1e1689c05d8a02e-AAC_HB.res
+res://Resources/WeaponResources/FN_57.tres::fd1f209e3765d26feb37a64c630b10d7::1717095119::res://.godot/exported/133200997/export-493fd1ab720ca6190aef68cfd1f09549-FN_57.res
+res://Resources/WeaponResources/Rifle.tres::453a7e43b9d9324e2255d67f94b2f30a::1717095119::res://.godot/exported/133200997/export-f211b9a20da4f588e5f19f6391206812-Rifle.res
+res://scenes/Menus/pause_menu.tscn::2c5d7667e7ff407cf3e9f6c9a4f1c01b::1717204533::res://.godot/exported/133200997/export-480d2d4c5600b7361401bf6e592513f0-pause_menu.scn
+res://scenes/Menus/main_menu.tscn::3bc63e900ab6b4c61d1c00244ab9cb33::1717204522::res://.godot/exported/133200997/export-0547a964fd9e631b13e49a92e63fc335-main_menu.scn
+res://scenes/my nodes/ActionInputs.tscn::465adabe97edd7c2678375bc88363718::1717028014::res://.godot/exported/133200997/export-ff6ff926a9279710ca713e3469f1d8c0-ActionInputs.scn
+res://scenes/my nodes/gunhandeler.tscn::c389ea8713b17c02bf0de5e856d73fef::1715614072::res://.godot/exported/133200997/export-ca9eff9e4e126d1445e41b849e6a1253-gunhandeler.scn
+res://scenes/my nodes/health.tscn::99211ccce8aba3fbdf88b407a2d3a9e7::1714173341::res://.godot/exported/133200997/export-c4b31280ee14b99a375cf7a1d54206e1-health.scn
+res://scenes/my nodes/recoil_handler.tscn::8d97e9af4f96f7415e61ab5a64f7dd47::1717028016::res://.godot/exported/133200997/export-8a3fff34fca060ff3f4d01cf2e325b9c-recoil_handler.scn
+res://scenes/my nodes/weapon_switcher.tscn::af8dccbc852a9f99c6b6c99f4b0c1a09::1717094837::res://.godot/exported/133200997/export-9b6c0bce1beda714cd651bcd3f3d2d48-weapon_switcher.scn
+res://scenes/Weapons/aac_honey_badger_222.tscn::869faccb56e79250dc605d152aefe133::1717094837::res://.godot/exported/133200997/export-7ba5e8d4751142fb71c3da80e45b1adc-aac_honey_badger_222.scn
+res://scenes/Weapons/fn_five_seven_139.tscn::d0ef57f3d4de56d147766bc7a5e704d9::1717204521::res://.godot/exported/133200997/export-e860a683cd04b31ed0425a069bcfd6e6-fn_five_seven_139.scn
+res://scenes/Weapons/rifle.tscn::94d50ff8997159aa0c2799d12a3ff59a::1717204521::res://.godot/exported/133200997/export-27b0a033f3352f7c4dbe46954bc533b0-rifle.scn
+res://scenes/Weapons/WeaponManager.tscn::da6c4b022dfa598b33dba809e8799ffb::1717094837::res://.godot/exported/133200997/export-11988c4ac7df2ba5820afc5406d10927-WeaponManager.scn
+res://scenes/Box Boy RagDoll.tscn::7c2656319f203b045d5847a415508de3::1717204521::res://.godot/exported/133200997/export-75430a34cd09023c513a9d74a5dde1b8-Box Boy RagDoll.scn
+res://scenes/Box Boy.tscn::e34c9c9a0c32eed2f9ebc4158d4d97c4::1714173340::res://.godot/exported/133200997/export-a234152b04b47acabec334a1184872c0-Box Boy.scn
+res://scenes/bullet.tscn::04601e2cb74b015c75576b82dc61ab2a::1717204521::res://.godot/exported/133200997/export-6d8e6ff1e6f20a36e0402d27c623c86c-bullet.scn
+res://scenes/chest.tscn::c04d0be4198e64bbbd625f5916653f8a::1717028014::res://.godot/exported/133200997/export-2ee8af5ae826349826a7d542e10ad760-chest.scn
+res://scenes/hitparticles.tscn::10bf5847f9d80479d8b1b33fa8478ffe::1717204522::res://.godot/exported/133200997/export-34ea7cd55bf5228529b5f7a6264b52b8-hitparticles.scn
+res://scenes/Labels.tscn::44d38889791228ae6a7e88ab0bfccc8d::1717204521::res://.godot/exported/133200997/export-259eec96ce90533db4c6a31f19a4efbe-Labels.scn
+res://scenes/player.tscn::7c64f60ec7e7065cc22eaa93ddfd90dd::1717204520::res://.godot/exported/133200997/export-234fb6894ec6226e856ab7f825500d3d-player.scn
+res://scenes/signals.tscn::64f84f3b73dbaf60605680157be95b97::1717095152::res://.godot/exported/133200997/export-57cfb699a24a34cdc1b3d2b9bebf8918-signals.scn
+res://scenes/test_world.tscn::265dd7e95f01b267a712df1c3c951f5e::1717204520::res://.godot/exported/133200997/export-7c5c51cb0259707df837c3df47cb8d6f-test_world.scn

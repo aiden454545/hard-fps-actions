@@ -166,6 +166,7 @@ size = Vector3(17.6229, 2.66534, 43.1023)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.909216, 1.99679, -2.88507)
 text = "Weapon Controls:
 Left Click = shoot
+Right Click = aim
 R = reload
 alse when interacting
 or reloading the arrows that

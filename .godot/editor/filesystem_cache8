@@ -1,5 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1717180856
+::res://::1717204945
+export_presets.cfg::TextFile::-1::1717204945::0::1::::<><>::
 icon.svg::CompressedTexture2D::1382299834751972792::1709873578::1709873627::1::::<><>::
 README.md::TextFile::-1::1712949040::0::1::::<><>::
 ::res://addons/::1717175894
@@ -41,10 +42,10 @@ trailmesh.gdextension::GDExtension::-1::1717042703::0::1::::<><>::
 ::res://addons/trailmesh/bin/libtrailmesh.macos.debug.framework/::1717042702
 ::res://addons/trailmesh/bin/libtrailmesh.macos.release.framework/::1717042702
 ::res://addons/trailmesh/example/::1717042706
-albedo.png::CompressedTexture2D::5780881316396566194::1717042702::1717042706::1::::<><>::
+albedo.png::CompressedTexture2D::5780881316396566194::1717042702::1717205139::1::::<><>::
 Camera.gd::GDScript::-1::1717042702::0::1::::<>Camera3D<>::
 ExampleScene.tscn::PackedScene::8604933168940356031::1717042702::0::1::::<><>::uid://ewionjtq8bvv::::res://addons/trailmesh/example/albedo.png<>uid://bpcblxgxor0ud::::res://addons/trailmesh/example/normal.png<>res://addons/trailmesh/example/Camera.gd
-normal.png::CompressedTexture2D::3859124183528302275::1717042702::1717042706::1::::<><>::
+normal.png::CompressedTexture2D::3859124183528302275::1717042702::1717205139::1::::<><>::
 ::res://addons/trailmesh/icons/::1717042706
 TrailEmitter.svg::CompressedTexture2D::5339382023466296492::1717042702::1717042706::1::::<><>::
 ::res://addons/VPainter/::1712949043
@@ -82,8 +83,8 @@ right arrow.png::CompressedTexture2D::411500679955443787::1712684743::1712685106
 Screenshot_2023-11-27_183131.png::CompressedTexture2D::4084494832967625648::1717030212::1717030241::1::::<><>::
 up arrow.png::CompressedTexture2D::6246425039952079921::1712684743::1712685106::1::::<><>::
 ::res://assets/images/textures/::1717030240
-::res://assets/materials/::1717178350
-defaultKenneyDark.tres::StandardMaterial3D::7428790855661445256::1717178350::0::1::::<><>::uid://bs1o7c7ratee6::::res://assets/textures/kenney_prototype_textures/dark/texture_07.png
+::res://assets/materials/::1717181237
+defaultKenneyDark.tres::StandardMaterial3D::7428790855661445256::1717181237::0::1::::<><>::uid://bs1o7c7ratee6::::res://assets/textures/kenney_prototype_textures/dark/texture_07.png
 ::res://assets/models/::1713117427
 anim_rigged_guns.glb::PackedScene::1398177123458443332::1712081648::1712081651::1::::<><>::uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png
 anim_rigged_guns_Image.png::CompressedTexture2D::5921224723415616268::1712081648::1712081648::1::::<><>::
@@ -195,56 +196,62 @@ VisualizerAudioBus.tres::AudioBusLayout::2284711204667567248::1715634170::0::1::
 AAC_HB.tres::Resource/Resource::7777982627089204689::1717095119::0::1::::<><>::res://scripts/weapon/weapon_resource.gd
 FN_57.tres::Resource/Resource::2961154968403155831::1717095119::0::1::::<><>::res://scripts/weapon/weapon_resource.gd
 Rifle.tres::Resource/Resource::6570810938764742871::1717095119::0::1::::<><>::res://scripts/weapon/weapon_resource.gd
-::res://scenes/::1717179892
-Box Boy RagDoll.tscn::PackedScene::8516027182265946761::1717179676::0::1::::<><>::res://scenes/Skeleton3D.gd<>res://scripts/my nodes/Damageable.gd<>res://scenes/Box Boy.gd<>uid://fsvu44kgr72v::::res://scenes/my nodes/health.tscn
+::res://scenes/::1717204522
+Box Boy RagDoll.tscn::PackedScene::8516027182265946761::1717204521::0::1::::<><>::res://scenes/Skeleton3D.gd<>res://scripts/my nodes/Damageable.gd<>res://scenes/Box Boy.gd<>uid://fsvu44kgr72v::::res://scenes/my nodes/health.tscn
 Box Boy.gd::GDScript::-1::1717103057::0::1::::<>Node3D<>::
 Box Boy.tscn::PackedScene::5071181719914665304::1714173340::0::1::::<><>::
-bullet.tscn::PackedScene::8686119159818161566::1717179677::0::1::::<><>::res://scripts/weapon/bullet.gd
+bullet.tscn::PackedScene::8686119159818161566::1717204521::0::1::::<><>::res://scripts/weapon/bullet.gd
 chest.tscn::PackedScene::9007645884700997359::1717028014::0::1::::<><>::res://scripts/interactable.gd<>res://scripts/chest.gd<>uid://jwfvys885la3::::res://scenes/my nodes/ActionInputs.tscn
-hitparticles.tscn::PackedScene::8310924923030778796::1717179677::0::1::::<><>::res://scripts/Effects/Particles/HitParticles.gd
-Labels.tscn::PackedScene::6787276374873171290::1717179892::0::1::::<><>::res://scripts/fps.gd
-player.tscn::PackedScene::4074934302001018736::1717179675::0::1::::<><>::res://scripts/player.gd<>res://scripts/InteractRay.gd<>uid://c3x2pkrbstf6q::::res://scenes/Labels.tscn<>res://scripts/weapon/weapon_sway.gd<>uid://fsvu44kgr72v::::res://scenes/my nodes/health.tscn<>res://scripts/my nodes/Damageable.gd
+hitparticles.tscn::PackedScene::8310924923030778796::1717204522::0::1::::<><>::res://scripts/Effects/Particles/HitParticles.gd
+Labels.tscn::PackedScene::6787276374873171290::1717204521::0::1::::<><>::res://scripts/fps.gd
+player.tscn::PackedScene::4074934302001018736::1717204520::0::1::::<><>::res://scripts/player.gd<>res://scripts/InteractRay.gd<>uid://c3x2pkrbstf6q::::res://scenes/Labels.tscn<>res://scripts/weapon/weapon_sway.gd<>uid://fsvu44kgr72v::::res://scenes/my nodes/health.tscn<>uid://dpdhh4t1whpxc::::res://scenes/Menus/pause_menu.tscn<>res://scripts/my nodes/Damageable.gd
 signals.tscn::PackedScene::5696518335075978195::1717095152::0::1::::<><>::res://scripts/auto loads/signals.gd
 Skeleton3D.gd::GDScript::-1::1717041065::0::1::::<>Skeleton3D<>::
-test_world.tscn::PackedScene::3858519556803132904::1717179676::0::1::::<><>::uid://byb6tp6oemv5a::::res://scenes/player.tscn<>uid://bs1o7c7ratee6::::res://assets/textures/kenney_prototype_textures/dark/texture_07.png<>uid://yq01mu7wref8::::res://assets/new_physics_material.tres<>uid://d1lmu2d1asdcp::::res://scenes/chest.tscn<>uid://ceirvfb2e4wqy::::res://scenes/Box Boy.tscn<>uid://dtlhyul30vjor::::res://scenes/Box Boy RagDoll.tscn<>uid://bibwf5nnh1q3y::::res://scenes/Weapons/rifle.tscn<>uid://bcn8kfg15ag35::::res://scenes/Weapons/fn_five_seven_139.tscn<>uid://dd3tdnvxpo81q::::res://assets/materials/defaultKenneyDark.tres<>uid://xga6n25ryc2o::::res://assets/textures/kenney_prototype_textures/dark/texture_10.png
+test_world.tscn::PackedScene::3858519556803132904::1717204520::0::1::::<><>::uid://byb6tp6oemv5a::::res://scenes/player.tscn<>uid://bs1o7c7ratee6::::res://assets/textures/kenney_prototype_textures/dark/texture_07.png<>uid://yq01mu7wref8::::res://assets/new_physics_material.tres<>uid://d1lmu2d1asdcp::::res://scenes/chest.tscn<>uid://ceirvfb2e4wqy::::res://scenes/Box Boy.tscn<>uid://dtlhyul30vjor::::res://scenes/Box Boy RagDoll.tscn<>uid://bibwf5nnh1q3y::::res://scenes/Weapons/rifle.tscn<>uid://bcn8kfg15ag35::::res://scenes/Weapons/fn_five_seven_139.tscn<>uid://dd3tdnvxpo81q::::res://assets/materials/defaultKenneyDark.tres<>uid://xga6n25ryc2o::::res://assets/textures/kenney_prototype_textures/dark/texture_10.png
 WeaponManager.gd::GDScript::-1::1712154852::0::1::::<>Node3D<>::
 ::res://scenes/interaction/::1710460345
 interactable.tscn::PackedScene::2506300837374273511::1710457398::0::1::::<><>::res://scripts/interactions/interactable.gd
 interactor.tscn::PackedScene::3222829578636931879::1710460345::0::1::::<><>::res://scripts/interactor.gd
 player_interactor.tscn::PackedScene::5080852308652307073::1710457398::0::1::::<><>::uid://bl6fsdlqehm3h::::res://scenes/interaction/interactor.tscn<>res://scripts/interactions/PlayerInteractor.gd
+::res://scenes/Menus/::1717204533
+pause_menu.tscn::PackedScene::8218726912158119524::1717204533::0::1::::<><>::res://scripts/MenuScripts/pause_menu.gd
+main_menu.tscn::PackedScene::4935954344664556815::1717204522::0::1::::<><>::res://scripts/MenuScripts/main_menu.gd
 ::res://scenes/my nodes/::1717094837
 ActionInputs.tscn::PackedScene::677458279878984552::1717028014::0::1::::<><>::res://scripts/my nodes/ActionInputs.gd
 gunhandeler.tscn::PackedScene::8981350083267767082::1715614072::0::1::::<><>::res://scripts/my nodes/gunhandler.gd
 health.tscn::PackedScene::389415358928992147::1714173341::0::1::::<><>::res://scripts/health.gd
 recoil_handler.tscn::PackedScene::6653794861580737::1717028016::0::1::::<><>::res://scripts/my nodes/RecoilHandler.gd
 weapon_switcher.tscn::PackedScene::3913477933999009028::1717094837::0::1::::<><>::res://scripts/my nodes/WeaponSwitcher.gd
-::res://scenes/Weapons/::1717179677
+::res://scenes/Weapons/::1717204521
 aac_honey_badger_222.tscn::PackedScene::6721520622538502934::1717094837::0::1::::<><>::uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png
-fn_five_seven_139.tscn::PackedScene::2555657073579281422::1717179677::0::1::::<><>::uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>res://scripts/my nodes/gunhandler.gd<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png<>res://scripts/weapon/WeaponInteractable.gd<>uid://dht7uukmf2x::::res://scenes/my nodes/recoil_handler.tscn<>uid://jwfvys885la3::::res://scenes/my nodes/ActionInputs.tscn
-rifle.tscn::PackedScene::2951342109745824560::1717179676::0::1::::<><>::res://scripts/my nodes/gunhandler.gd<>uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png<>res://scripts/weapon/WeaponInteractable.gd<>uid://dht7uukmf2x::::res://scenes/my nodes/recoil_handler.tscn<>uid://jwfvys885la3::::res://scenes/my nodes/ActionInputs.tscn
+fn_five_seven_139.tscn::PackedScene::2555657073579281422::1717204521::0::1::::<><>::uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>res://scripts/my nodes/gunhandler.gd<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png<>res://scripts/weapon/WeaponInteractable.gd<>uid://dht7uukmf2x::::res://scenes/my nodes/recoil_handler.tscn<>uid://jwfvys885la3::::res://scenes/my nodes/ActionInputs.tscn
+rifle.tscn::PackedScene::2951342109745824560::1717204521::0::1::::<><>::res://scripts/my nodes/gunhandler.gd<>uid://cm37idw3301fk::::res://assets/models/anim_rigged_guns_Rifles_baseColor.png<>uid://uh3l3cvc87vq::::res://assets/models/anim_rigged_guns_Rifles_metallicRoughness.png<>res://scripts/weapon/WeaponInteractable.gd<>uid://dht7uukmf2x::::res://scenes/my nodes/recoil_handler.tscn<>uid://jwfvys885la3::::res://scenes/my nodes/ActionInputs.tscn
 WeaponManager.tscn::PackedScene::8580779565577694167::1717094837::0::1::::<><>::uid://bibwf5nnh1q3y::::res://scenes/Weapons/rifle.tscn<>uid://c207py2c1226u::::res://scenes/Weapons/aac_honey_badger_222.tscn<>uid://bcn8kfg15ag35::::res://scenes/Weapons/fn_five_seven_139.tscn
-::res://scripts/::1717179675
+::res://scripts/::1717204144
 chest.gd::GDScript::-1::1715997735::0::1::::<>Node3D<>::
 fps.gd::GDScript::-1::1717045246::0::1::::<>Label<>::
 health.gd::GDScript::-1::1713370378::0::1::::Health_System<>Node<>::
 interactable.gd::GDScript::-1::1714172424::0::1::::Interactable<>Node3D<>::
 InteractRay.gd::GDScript::-1::1717041403::0::1::::<>RayCast3D<>::
-player.gd::GDScript::-1::1717179675::0::1::::<>CharacterBody3D<>::
+player.gd::GDScript::-1::1717204144::0::1::::<>CharacterBody3D<>::
 ::res://scripts/auto loads/::1717104281
 Preload.gd::GDScript::-1::1717095955::0::1::::<>Node<>::
 signals.gd::GDScript::-1::1710530591::0::1::::<>Node<>::
 ::res://scripts/Effects/::1717099108
 ::res://scripts/Effects/Particles/::1717101735
 HitParticles.gd::GDScript::-1::1717101735::0::1::::<>GPUParticles3D<>::
-::res://scripts/my nodes/::1717175146
+::res://scripts/MenuScripts/::1717204520
+main_menu.gd::GDScript::-1::1717203036::0::1::::<>Control<>::
+pause_menu.gd::GDScript::-1::1717204520::0::1::::<>Control<>::
+::res://scripts/my nodes/::1717201702
 ActionInputs.gd::GDScript::-1::1717102375::0::1::::<>Node<>::
 Damageable.gd::GDScript::-1::1713368723::0::1::::Damageable<>StaticBody3D<>::
-gunhandler.gd::GDScript::-1::1717100454::0::1::::<>RigidBody3D<>::
-RecoilHandler.gd::GDScript::-1::1717175146::0::1::::<>Node<>::
+gunhandler.gd::GDScript::-1::1717201702::0::1::::<>RigidBody3D<>::
+RecoilHandler.gd::GDScript::-1::1717191172::0::1::::<>Node<>::
 WeaponSwitcher.gd::GDScript::-1::1715991913::0::1::::<>Node<>::
-::res://scripts/weapon/::1717175234
+::res://scripts/weapon/::1717182331
 bullet.gd::GDScript::-1::1717175234::0::1::::<>Node3D<>::
 weaponcastgyro.gd::GDScript::-1::1713370966::0::1::::<>Node3D<>::
 WeaponInteractable.gd::GDScript::-1::1715990663::0::1::::WeaponInteractable<>Node3D<>::
 weapon_resource.gd::GDScript::-1::1712154522::0::1::::WeaponResource<>Resource<>::
-weapon_sway.gd::GDScript::-1::1717091996::0::1::::<>Node<>::
+weapon_sway.gd::GDScript::-1::1717182331::0::1::::<>Node<>::

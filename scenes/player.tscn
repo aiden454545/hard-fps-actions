@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://byb6tp6oemv5a"]
+[gd_scene load_steps=19 format=3 uid="uid://byb6tp6oemv5a"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2jbgd"]
 [ext_resource type="Script" path="res://scripts/InteractRay.gd" id="2_vhdd1"]
 [ext_resource type="PackedScene" uid="uid://c3x2pkrbstf6q" path="res://scenes/Labels.tscn" id="3_mpmu3"]
 [ext_resource type="Script" path="res://scripts/weapon/weapon_sway.gd" id="4_iqx8o"]
 [ext_resource type="PackedScene" uid="uid://fsvu44kgr72v" path="res://scenes/my nodes/health.tscn" id="5_c5bmy"]
+[ext_resource type="PackedScene" uid="uid://dpdhh4t1whpxc" path="res://scenes/Menus/pause_menu.tscn" id="7_uynij"]
 [ext_resource type="Script" path="res://scripts/my nodes/Damageable.gd" id="8_56y3o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1um2k"]
@@ -252,3 +253,5 @@ shape = SubResource("CapsuleShape3D_ahxa1")
 
 [node name="crouchCast" type="RayCast3D" parent="."]
 target_position = Vector3(0, 1, 0)
+
+[node name="pauseMenu" parent="." instance=ExtResource("7_uynij")]

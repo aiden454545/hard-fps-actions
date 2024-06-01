@@ -5,6 +5,7 @@ extends CharacterBody3D
 @onready var wallrayback = $wallRunRaycasts/back
 @onready var wallrayleft = $wallRunRaycasts/left
 @onready var wallrayright = $wallRunRaycasts/right
+@onready var pauseMenu = $pauseMenu
 
 
 @onready var head = $head
@@ -46,6 +47,9 @@ var currentHeadBobbingIntensity
 var headBobbingVector = Vector2.ZERO
 var headBobbingIndex = 0.0
 
+#pause buttons
+@onready var ResumeButton = get_node("pauseMenu").get_node("MarginContainer/VBoxContainer/Resume")
+@onready var RestartButton = get_node("pauseMenu").get_node("MarginContainer/VBoxContainer/Restart")
 
 var sliding = false
 var walking = false
@@ -69,9 +73,17 @@ var slideTimeMax = 2.5
 
 var lastVelocity = Vector3.ZERO
 
+var paused = true
+var ResumePressed = false
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 3.5
 
 func _ready():
+	ResumeButton.pressed.connect(self.Pause)
+	RestartButton.pressed.connect(self.Restart)
+	
+	pauseMenu.hide()
+	
 	wallrayback.add_exception(damagebody)
 	wallrayleft.add_exception(damagebody)
 	wallrayright.add_exception(damagebody)
@@ -90,10 +102,18 @@ func _input(event):
 			head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90),  deg_to_rad(90))
 
 func _process(delta):
-	if Input.is_action_just_pressed("escape") and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	elif Input.is_action_just_pressed("escape") and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if Input.is_action_just_pressed("escape") or ResumePressed:
+		if paused:
+			pauseMenu.show()
+			player_enabled = false
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			paused = false
+		else:
+			pauseMenu.hide()
+			player_enabled = true
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			paused = true
+
 
 
 func _physics_process(delta):
@@ -200,7 +220,6 @@ func _physics_process(delta):
 		if lastVelocity.y < 0.0 and !sliding:
 			animPlayer.play("landing")
 	
-	print(str(wallRunning))
 	
 	if is_on_floor() or wallRunning:
 		direction = lerp(direction,(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(),delta * 10)
@@ -263,3 +282,11 @@ func wallRun():
 			wallRunning = false
 	else:
 		wallRunning = false
+
+func Pause():
+	ResumePressed = true
+	await get_tree().create_timer(0.0001).timeout
+	ResumePressed = false
+
+func Restart():
+	get_tree().reload_current_scene()

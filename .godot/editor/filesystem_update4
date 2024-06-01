@@ -11,3 +11,7 @@ res://scenes/hitparticles.tscn
 res://scripts/weapon/weapon_sway.gd
 res://scripts/player.gd
 res://scripts/my nodes/RecoilHandler.gd
+res://scenes/Menus/pause_menu.tscn
+res://scripts/MenuScripts/main_menu.gd
+res://scenes/Menus/main_menu.tscn
+res://scripts/MenuScripts/pause_menu.gd

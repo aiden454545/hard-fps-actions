@@ -43,6 +43,9 @@ var player
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if player == null: return
+	if !player.player_enabled: return
+	
 	if eqquiped == true:
 		ammoLabel.text = str(ammo) + "/" + str(ammo_reserve)
 		WeapponNameLabel.text = WeaponName

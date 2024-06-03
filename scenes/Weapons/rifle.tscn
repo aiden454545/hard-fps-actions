@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bibwf5nnh1q3y"]
+[gd_scene load_steps=19 format=3 uid="uid://bibwf5nnh1q3y"]
 
 [ext_resource type="Script" path="res://scripts/my nodes/gunhandler.gd" id="1_b8u8h"]
 [ext_resource type="Texture2D" uid="uid://cm37idw3301fk" path="res://assets/models/anim_rigged_guns_Rifles_baseColor.png" id="1_callm"]
@@ -157,6 +157,17 @@ shadow_mesh = SubResource("ArrayMesh_fiyqm")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_odd2j"]
 size = Vector3(0.185064, 0.712585, 2.43146)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_0otqy"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:scale")
+properties/2/spawn = true
+properties/2/replication_mode = 1
 
 [node name="Rifle" type="RigidBody3D" node_paths=PackedStringArray("interactColliderObject", "gun", "barrel", "handle", "InteractCollider")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.253023, -0.670781)
@@ -323,6 +334,9 @@ input4 = "Up"
 input5 = "Right"
 input6 = "Up"
 number_of_inputs = 6
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_0otqy")
 
 [connection signal="WeaponEquipped" from="." to="RecoilHandler" method="_on_weapon_equipped"]
 [connection signal="WeaponUnequipped" from="." to="RecoilHandler" method="_on_weapon_unequipped"]

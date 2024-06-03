@@ -35,7 +35,8 @@ func _ready():
 
 
 func _process(delta):
-	
+	if !player: return
+	if !player.is_multiplayer_authority(): return
 	if player and equipped:
 		ads_point.top_level = true
 		handle_point.top_level = true

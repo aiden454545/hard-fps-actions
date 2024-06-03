@@ -7,9 +7,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta) -> void:
 	pass
 
 
-func _on_leave_pressed():
-	get_tree().quit()

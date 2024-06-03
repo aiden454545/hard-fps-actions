@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bcn8kfg15ag35"]
+[gd_scene load_steps=21 format=3 uid="uid://bcn8kfg15ag35"]
 
 [ext_resource type="Texture2D" uid="uid://cm37idw3301fk" path="res://assets/models/anim_rigged_guns_Rifles_baseColor.png" id="1_fe6n3"]
 [ext_resource type="Script" path="res://scripts/my nodes/gunhandler.gd" id="1_qxrv6"]
@@ -157,17 +157,55 @@ size = Vector3(0.0864258, 0.439209, 0.594727)
 [sub_resource type="BoxShape3D" id="BoxShape3D_gru83"]
 size = Vector3(0.0913086, 0.431519, 0.603607)
 
-[node name="FN FIVE-SEVEN_139" type="RigidBody3D" node_paths=PackedStringArray("interactColliderObject", "gun", "barrel", "InteractCollider")]
+[sub_resource type="Animation" id="Animation_x4cpm"]
+resource_name = "reload"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0), Vector3(3.14159, 0, 0), Vector3(4.71239, 0, 0), Vector3(6.28319, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hl5qo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ygcru"]
+_data = {
+"RESET": SubResource("Animation_hl5qo"),
+"reload": SubResource("Animation_x4cpm")
+}
+
+[node name="FN FIVE-SEVEN_139" type="RigidBody3D" node_paths=PackedStringArray("animPlayer", "interactColliderObject", "gun", "barrel", "InteractCollider")]
 collision_layer = 128
 collision_mask = 3
 script = ExtResource("1_qxrv6")
 WeaponName = "Pistol"
+animPlayer = NodePath("AnimationPlayer")
 interactColliderObject = NodePath("Pistol")
 gun = NodePath(".")
 barrel = NodePath("RayCast3D")
 InteractCollider = NodePath("Pistol/CollisionShape3D")
 damage = 20
-single_delay = 0.5
+single_delay = 0.1
 mag_size = 15
 ammo_reserve = 90
 ammo_reserve_size = 90
@@ -311,6 +349,11 @@ input4 = "Up"
 input5 = "Right"
 input6 = "Up"
 number_of_inputs = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ygcru")
+}
 
 [connection signal="WeaponEquipped" from="." to="RecoilHandler" method="_on_weapon_equipped"]
 [connection signal="WeaponUnequipped" from="." to="RecoilHandler" method="_on_weapon_unequipped"]

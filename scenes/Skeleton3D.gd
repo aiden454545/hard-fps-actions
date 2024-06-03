@@ -16,6 +16,7 @@ var isbone8first
 var isbone9first
 
 func _ready():
+	$"../..".get_parent().visible = true
 	physical_bones_start_simulation()
 	physics_bones = get_children().filter(func(x): return x is PhysicalBone3D)
 	#physics_bones = [$"Physical Bone Bone_006",
@@ -36,6 +37,7 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	
 	for b in physics_bones:
 		var target_transform: Transform3D = target_skeleton.global_transform * target_skeleton.get_bone_global_pose(b.get_bone_id())
 		var current_transform: Transform3D = global_transform * get_bone_global_pose(b.get_bone_id())

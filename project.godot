@@ -135,6 +135,7 @@ jump={
 
 3d_physics/layer_1="envirnment"
 3d_physics/layer_2="player"
+3d_physics/layer_7="IsAFloor"
 3d_physics/layer_10="damageable"
 3d_physics/layer_30="interactable"
 

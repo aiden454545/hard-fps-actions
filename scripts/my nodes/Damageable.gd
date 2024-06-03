@@ -1,5 +1,5 @@
 class_name Damageable
-extends StaticBody3D
+extends Node3D
 
 @export var health_node: Health_System
 

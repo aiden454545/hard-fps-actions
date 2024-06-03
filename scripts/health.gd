@@ -11,6 +11,7 @@ func _ready():
 
 
 func _process(delta):
+	if !owner.is_multiplayer_authority(): return
 	if health > max_health:
 		health = max_health
 	if health <= 0:

@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://byb6tp6oemv5a"]
+[gd_scene load_steps=18 format=3 uid="uid://byb6tp6oemv5a"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2jbgd"]
 [ext_resource type="Script" path="res://scripts/InteractRay.gd" id="2_vhdd1"]
 [ext_resource type="PackedScene" uid="uid://c3x2pkrbstf6q" path="res://scenes/Labels.tscn" id="3_mpmu3"]
 [ext_resource type="Script" path="res://scripts/weapon/weapon_sway.gd" id="4_iqx8o"]
 [ext_resource type="PackedScene" uid="uid://fsvu44kgr72v" path="res://scenes/my nodes/health.tscn" id="5_c5bmy"]
-[ext_resource type="PackedScene" uid="uid://dpdhh4t1whpxc" path="res://scenes/Menus/pause_menu.tscn" id="7_uynij"]
 [ext_resource type="Script" path="res://scripts/my nodes/Damageable.gd" id="8_56y3o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1um2k"]
@@ -13,10 +12,37 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tg3f1"]
 height = 1.0
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_e8dj3"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g3rgv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_kl8wy"]
 size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="Animation" id="Animation_esgk2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_s64t0"]
 resource_name = "jumping"
@@ -74,33 +100,6 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(-0.0436332, 0, 0), Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_esgk2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_784xo"]
 _data = {
 "RESET": SubResource("Animation_esgk2"),
@@ -121,11 +120,15 @@ height = 1.012
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_2jbgd")
+player_enabled = true
 
 [node name="wallRunRaycasts" type="Node3D" parent="."]
 
 [node name="back" type="RayCast3D" parent="wallRunRaycasts"]
 target_position = Vector3(0, 0, 0.8)
+
+[node name="front" type="RayCast3D" parent="wallRunRaycasts"]
+target_position = Vector3(0, 0, -0.8)
 
 [node name="left" type="RayCast3D" parent="wallRunRaycasts"]
 target_position = Vector3(-0.8, 0, 0)
@@ -139,8 +142,8 @@ shape = SubResource("CapsuleShape3D_1um2k")
 [node name="crouchingCollisionShape" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_tg3f1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_e8dj3")
+[node name="standingMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_g3rgv")
 
 [node name="head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
@@ -148,6 +151,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 [node name="pivot" type="Node3D" parent="head"]
 
 [node name="Camera3D" type="Camera3D" parent="head/pivot"]
+current = true
 
 [node name="InteractRay" type="RayCast3D" parent="head/pivot/Camera3D"]
 target_position = Vector3(0, 0, -4)
@@ -197,6 +201,7 @@ sway_right = Vector3(0, -0.025, 0)
 
 [node name="GunRay" type="RayCast3D" parent="head/pivot/Camera3D"]
 visible = false
+target_position = Vector3(0, 0, -200)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="head/pivot"]
 libraries = {
@@ -235,8 +240,8 @@ size_flags_vertical = 4
 expand_mode = 1
 
 [node name="health" parent="." node_paths=PackedStringArray("node_to_kill") instance=ExtResource("5_c5bmy")]
-health = 10
-max_health = 10
+health = 100
+max_health = 100
 node_to_kill = NodePath("..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("health_node")]
@@ -254,4 +259,63 @@ shape = SubResource("CapsuleShape3D_ahxa1")
 [node name="crouchCast" type="RayCast3D" parent="."]
 target_position = Vector3(0, 1, 0)
 
-[node name="pauseMenu" parent="." instance=ExtResource("7_uynij")]
+[node name="pauseMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="pauseMenu"]
+self_modulate = Color(0.301961, 0.301961, 0.301961, 0.6)
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="pauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pauseMenu/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Resume" type="Button" parent="pauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Resume"
+icon_alignment = 1
+
+[node name="Settings" type="Button" parent="pauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Settings
+"
+icon_alignment = 1
+
+[node name="Restart" type="Button" parent="pauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Restart
+"
+icon_alignment = 1
+
+[node name="Leave" type="Button" parent="pauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Leave
+"
+icon_alignment = 1
+
+[connection signal="pressed" from="pauseMenu/MarginContainer/VBoxContainer/Resume" to="." method="Pause"]
+[connection signal="pressed" from="pauseMenu/MarginContainer/VBoxContainer/Restart" to="." method="Restart"]
+[connection signal="pressed" from="pauseMenu/MarginContainer/VBoxContainer/Leave" to="." method="Leave"]

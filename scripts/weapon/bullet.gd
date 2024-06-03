@@ -16,13 +16,14 @@ var damage
 var gun
 var player
 var guninteract
-
+var barrelPos
 
 func _ready():
 	direction = global_transform.basis.z
 	oldPos = global_transform.origin
 	starterPos = global_transform.origin
 	RayCast.top_level = true
+	barrelPos = gun.barrel.global_transform.origin
 	get_tree().create_timer(lifetime).timeout.connect(destroy)
 
 
@@ -36,6 +37,7 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	if !player: return
 	newPos = global_transform.origin - (direction * speed * delta)
 	
 	#DebugDraw3D.draw_sphere(RayCast.global_transform.origin, 1, Color.MAGENTA, 5)
@@ -54,15 +56,16 @@ func _physics_process(delta):
 	#	var result = RayCast.get_collider()
 	
 	
-	DebugDraw3D.draw_arrow(starterPos, newPos, Color.RED, 0.1, true)
+	#DebugDraw3D.draw_arrow(starterPos, newPos, Color.RED, 0.1, true)
 	oldPos = newPos
 
 func result_func(result):
 	if result:
+		DebugDraw3D.draw_line(barrelPos, result.position, Color.RED, 0.1)
 		DebugDraw3D.draw_sphere(result.position)
 		var normal = result.normal
-		if result.collider is RigidBody3D:
-			result.collider.apply_force(direction * -200, result.position)
+		if result.collider is RigidBody3D and result.collider is PhysicalBone3D:
+			result.collider.apply_impulse(direction * -200, result.position)
 		
 		if result.collider is Damageable:
 			print("damage: " + str(damage))
@@ -72,6 +75,8 @@ func result_func(result):
 		else:
 			SpawnParticles(result, "HitParticle")
 			destroy()
+	else:
+		DebugDraw3D.draw_arrow(barrelPos, newPos, Color.RED, 0.1, true)
 
 
 func SpawnParticles(result, particle):

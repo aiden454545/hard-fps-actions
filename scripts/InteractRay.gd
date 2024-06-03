@@ -18,7 +18,7 @@ func _process(delta):
 			
 			if Input.is_action_just_pressed(detected.prompt_action):
 				detected.interact(owner)
-		if detected is WeaponInteractable and WeaponEquippedInSlot == false:
+		if detected is WeaponInteractable and owner.WeaponEquippedInSlot == false:
 			prompt.text = detected.get_prompt()
 			
 			if Input.is_action_just_pressed(detected.prompt_action):

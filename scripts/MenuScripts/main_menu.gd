@@ -1,18 +1,9 @@
 extends Control
 
-@onready var tutorial_button = $MarginContainer/HBoxContainer/VBoxContainer/TutorialButton
-@onready var host_button = $MarginContainer/HBoxContainer/VBoxContainer/HostButton
-@onready var join_button = $MarginContainer/HBoxContainer/VBoxContainer/JoinButton
 
+
+@onready var tutorial_button = $VBoxContainer/TutorialButton
 @onready var tutorialLevel = preload("res://scenes/test_world.tscn")
-
-func _ready():
-	pass
-
-
-
-func _process(delta):
-	pass
 
 
 

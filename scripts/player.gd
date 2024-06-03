@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @onready var animPlayer = $head/pivot/AnimationPlayer
 
+@onready var wallrayfront = $wallRunRaycasts/front
 @onready var wallrayback = $wallRunRaycasts/back
 @onready var wallrayleft = $wallRunRaycasts/left
 @onready var wallrayright = $wallRunRaycasts/right
@@ -19,25 +20,26 @@ extends CharacterBody3D
 @onready var crouchcast = $crouchCast
 
 @onready var standcollider = $standingCollisionShape
+@onready var standingMesh = $standingMesh
 @onready var crouchcollider = $crouchingCollisionShape
 
 @export var JUMP_VELOCITY = 4.5 * 3
 @export var mouse_sens = 0.2
 
-@export var player_enabled = true
+@export var player_enabled = false
 
 @export_category("speed variables")
-@export var slidingspeed: float = 6
-@export var walkingspeed: float = 7
-@export var sprintspeed: float = 10
-@export var crouchspeed: float = 3.5
-@export var wallRunSpeed:float = 15
+@export var slidingspeed: float = 10
+@export var walkingspeed: float = 8.5
+@export var sprintspeed: float = 13
+@export var crouchspeed: float = 4.5
+#@export var wallRunSpeed:float = 15
 
 @export_category("camera settings")
 @export var slideTilt: float
-@export var HeadBobbingSprintSpeed: float = 22
-@export var HeadBobbingWalkingSpeed: float = 16
-@export var HeadBobbingCrouchingSpeed: float = 10
+@export var HeadBobbingSprintSpeed: float = 28
+@export var HeadBobbingWalkingSpeed: float = 18
+@export var HeadBobbingCrouchingSpeed: float = 11
 
 @export var HeadBobbingSprintIntesity: float = 0.2
 @export var HeadBobbingWalkIntesity: float = 0.1
@@ -57,6 +59,8 @@ var sprinting = false
 var crouching = false
 var wallRunning = false
 
+var WeaponEquippedInSlot = false
+
 var currentspeed: float
 var crouchingdepth = -0.3
 
@@ -65,7 +69,6 @@ var Velocity
 
 var wallNormal = Vector3.ZERO
 
-var max: float = 4
 var slideVector = Vector2.ZERO
 
 var slideTime = 0
@@ -78,15 +81,15 @@ var ResumePressed = false
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 3.5
 
+
 func _ready():
-	ResumeButton.pressed.connect(self.Pause)
-	RestartButton.pressed.connect(self.Restart)
-	
 	pauseMenu.hide()
 	
+	wallrayfront.add_exception(damagebody)
 	wallrayback.add_exception(damagebody)
 	wallrayleft.add_exception(damagebody)
 	wallrayright.add_exception(damagebody)
+	wallrayfront.add_exception($".")
 	wallrayback.add_exception($".")
 	wallrayleft.add_exception($".")
 	wallrayright.add_exception($".")
@@ -105,12 +108,12 @@ func _process(delta):
 	if Input.is_action_just_pressed("escape") or ResumePressed:
 		if paused:
 			pauseMenu.show()
-			player_enabled = false
+#			player_enabled = false
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			paused = false
 		else:
 			pauseMenu.hide()
-			player_enabled = true
+#			player_enabled = true
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			paused = true
 
@@ -136,8 +139,9 @@ func _physics_process(delta):
 	if Input.is_action_pressed("crouch"):
 		
 		
-		standcollider.disabled =true
+		standcollider.disabled = true
 		standdamagecollider.disabled = true
+		standingMesh.visible = false
 		
 		crouchcollider.disabled = false
 		crouchdamagecollider.disabled = false
@@ -146,7 +150,7 @@ func _physics_process(delta):
 		if sprinting == true and input_dir != Vector2(0,0):
 			#currentspeed = lerp(currentspeed, slidingspeed, delta * 20)
 			sliding = true
-		else:
+		elif is_on_floor():
 			currentspeed = lerp(currentspeed, crouchspeed, delta * 10)
 			sprinting = false
 			sliding = false
@@ -161,13 +165,14 @@ func _physics_process(delta):
 		crouchdamagecollider.disabled = true
 		head.position.y = 0.7
 		if Input.is_action_pressed("sprint"):
-			sprinting = true
-			walking = false
-			crouching = false
-			sliding = false
-			
-			currentspeed = lerp(currentspeed, sprintspeed, delta * 10)
-		else:
+			if is_on_floor():
+				sprinting = true
+				walking = false
+				crouching = false
+				sliding = false
+				
+				currentspeed = lerp(currentspeed, sprintspeed, delta * 10)
+		elif is_on_floor():
 			currentspeed = lerp(currentspeed, walkingspeed, delta * 10)
 			sprinting = false
 			walking = true
@@ -175,20 +180,22 @@ func _physics_process(delta):
 			sliding = false
 	
 	if wallRunning:
-		currentspeed = wallRunSpeed
+		#currentspeed = wallRunSpeed
 		if wallrayleft.is_colliding():
-			Camera.rotation.z = lerp(Camera.rotation.z, -deg_to_rad(10), delta * 8)
+			Camera.rotation.z = lerp(Camera.rotation.z, -deg_to_rad(15), delta * 8)
 		elif wallrayright.is_colliding():
-			Camera.rotation.z = lerp(Camera.rotation.z, deg_to_rad(10), delta * 8)
+			Camera.rotation.z = lerp(Camera.rotation.z, deg_to_rad(15), delta * 8)
 		else:
 			Camera.rotation.z = lerp(Camera.rotation.z, 0.0, delta * 10)
 	
 	if sliding:
 		if is_on_floor():
+			slideTime -= delta
 			Camera.rotation.z = lerp(Camera.rotation.z, -deg_to_rad(4), delta * 8)
 		else:
+			slideTime = slideTimeMax
 			Camera.rotation.z = lerp(Camera.rotation.z, 0.0, delta * 8)
-		slideTime -= delta
+		
 		if slideTime <= 0:
 			sliding = false
 			sprinting = false
@@ -228,17 +235,18 @@ func _physics_process(delta):
 			direction = lerp(direction,(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(),delta * 5)
 	
 	if sliding:
-		currentspeed = (slideTime + 0.2) * slidingspeed
+		if is_on_floor():
+			currentspeed = (slideTime + 0.2) * slidingspeed
 	
 	if direction:
 		velocity.x = direction.x * currentspeed
 		velocity.z = direction.z * currentspeed
 	else:
-		velocity.x = move_toward(velocity.x, 0, currentspeed)
-		velocity.z = move_toward(velocity.z, 0, currentspeed)
+		velocity.x = lerp(velocity.x, 0.0, delta * 7)
+		velocity.z = lerp(velocity.z, 0.0, delta * 7)
 	
 	lastVelocity = velocity
-
+	
 	move_and_slide()
 
 
@@ -248,14 +256,16 @@ func wallRun():
 		if wallrayleft.is_colliding():
 			if Input.is_action_pressed("forward"):
 				wallRunning = true
-				sprinting = false
-				walking = false
-				crouching = false
-				sliding = false
 				wallNormal = wallrayleft.get_collision_normal()
 				if Input.is_action_just_pressed("jump"):
-					velocity.y = JUMP_VELOCITY * 1.2
-					direction = direction + (wallNormal * 2.8)
+					velocity.y = JUMP_VELOCITY * 1.8
+					if sliding:
+						direction = direction + (wallNormal * 1.8)
+					elif sprinting:
+						direction = direction + (wallNormal * 2)
+					elif walking:
+						direction = direction + (wallNormal * 2.8)
+					
 					wallRunning = false
 				else:
 					velocity.y = 0
@@ -265,14 +275,15 @@ func wallRun():
 			if Input.is_action_pressed("forward"):
 				wallNormal = wallrayright.get_collision_normal()
 				wallRunning = true
-				sprinting = false
-				walking = false
-				crouching = false
-				sliding = false
-				
 				if Input.is_action_just_pressed("jump"):
-					velocity.y = JUMP_VELOCITY * 1.2
-					direction = direction + (wallNormal * 2.8)
+					velocity.y = JUMP_VELOCITY * 1.8
+					if sliding:
+						direction = direction + (wallNormal * 1.8)
+					elif sprinting:
+						direction = direction + (wallNormal * 2)
+					elif walking:
+						direction = direction + (wallNormal * 2.8)
+					
 					wallRunning = false
 				else:
 					velocity.y = 0
@@ -280,8 +291,31 @@ func wallRun():
 				wallRunning = false
 		else:
 			wallRunning = false
+		
+		if wallrayfront.is_colliding():
+			wallNormal = wallrayfront.get_collision_normal()
+			if Input.is_action_just_pressed("jump"):
+				velocity.y = JUMP_VELOCITY * 1.8
+				if sliding:
+					direction = direction + (wallNormal * 1.8)
+				elif sprinting:
+					direction = direction + (wallNormal * 2)
+				elif walking:
+					direction = direction + (wallNormal * 2.8)
+		elif wallrayback.is_colliding():
+			wallNormal = wallrayback.get_collision_normal()
+			if Input.is_action_just_pressed("jump"):
+				velocity.y = JUMP_VELOCITY * 1.8
+				if sliding:
+					direction = direction + (wallNormal * 1.8)
+				elif sprinting:
+					direction = direction + (wallNormal * 2)
+				elif walking:
+					direction = direction + (wallNormal * 2.8)
+		
 	else:
 		wallRunning = false
+
 
 func Pause():
 	ResumePressed = true
@@ -290,3 +324,7 @@ func Pause():
 
 func Restart():
 	get_tree().reload_current_scene()
+
+
+func Leave():
+	get_tree().quit()

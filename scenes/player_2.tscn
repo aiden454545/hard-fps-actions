@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://1d8lpi6jqg7s"]
+
+[ext_resource type="Script" path="res://scripts/player2.gd" id="1_ciu42"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3jcru"]
+friction = 0.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_td7am"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oiex5"]
+
+[node name="player2" type="RigidBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_3jcru")
+continuous_cd = true
+max_contacts_reported = 1
+script = ExtResource("1_ciu42")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_td7am")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_oiex5")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+top_level = true
+
+[node name="Pivot" type="Node3D" parent="Head"]
+
+[node name="Camera3D" type="Camera3D" parent="Head/Pivot"]
+
+[node name="floorCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.955835, 0)
+target_position = Vector3(0, -0.15, 0)
+collision_mask = 64

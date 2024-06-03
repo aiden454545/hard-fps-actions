@@ -58,6 +58,7 @@ var walking = false
 var sprinting = false
 var crouching = false
 var wallRunning = false
+var canWallJump = false
 
 var WeaponEquippedInSlot = false
 
@@ -71,6 +72,14 @@ var wallNormal = Vector3.ZERO
 
 var slideVector = Vector2.ZERO
 
+#wall run/jump stuff
+var wallrunTBS = 0
+var wallrunTBSMax = 1.5
+var wallrunTime = 0
+var wallrunTimeMax = 5
+@export var wallJumpsAmount: float = 0
+@export var wallJumpsMaxAmount: float = 4
+
 var slideTime = 0
 var slideTimeMax = 2.5
 
@@ -79,7 +88,7 @@ var lastVelocity = Vector3.ZERO
 var paused = true
 var ResumePressed = false
 
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 3.5
+var gravity = 34.3
 
 
 func _ready():
@@ -128,7 +137,12 @@ func _physics_process(delta):
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y -= gravity * delta
+		if wallRunning and wallrunTBS <= 0:
+			velocity.y -= (wallrunTime * (gravity / 10)) * delta
+		elif wallRunning:
+			velocity.y = 0
+		else:
+			velocity.y -= gravity * delta
 
 	# Handle jump.
 	if Input.is_action_pressed("jump") and is_on_floor():
@@ -141,7 +155,6 @@ func _physics_process(delta):
 		
 		standcollider.disabled = true
 		standdamagecollider.disabled = true
-		standingMesh.visible = false
 		
 		crouchcollider.disabled = false
 		crouchdamagecollider.disabled = false
@@ -187,6 +200,22 @@ func _physics_process(delta):
 			Camera.rotation.z = lerp(Camera.rotation.z, deg_to_rad(15), delta * 8)
 		else:
 			Camera.rotation.z = lerp(Camera.rotation.z, 0.0, delta * 10)
+		wallrunTBS -= delta
+		if wallrunTBS <= 0:
+			wallrunTime -= delta
+		else:
+			wallrunTime = wallrunTimeMax
+	else:
+		wallrunTime = wallrunTimeMax
+		wallrunTBS = wallrunTBSMax
+	
+	if !is_on_floor():
+		if wallJumpsAmount <= 0:
+			canWallJump = false
+		else:
+			canWallJump = true
+	else:
+		wallJumpsAmount = wallJumpsMaxAmount
 	
 	if sliding:
 		if is_on_floor():
@@ -257,36 +286,36 @@ func wallRun():
 			if Input.is_action_pressed("forward"):
 				wallRunning = true
 				wallNormal = wallrayleft.get_collision_normal()
-				if Input.is_action_just_pressed("jump"):
-					velocity.y = JUMP_VELOCITY * 1.8
-					if sliding:
-						direction = direction + (wallNormal * 1.8)
-					elif sprinting:
-						direction = direction + (wallNormal * 2)
-					elif walking:
-						direction = direction + (wallNormal * 2.8)
-					
-					wallRunning = false
-				else:
-					velocity.y = 0
+				if canWallJump:
+					if Input.is_action_just_pressed("jump"):
+						wallJumpsAmount = wallJumpsAmount - 1
+						velocity.y = JUMP_VELOCITY * 1.8
+						if sliding:
+							direction = direction + (wallNormal * 1.8)
+						elif sprinting:
+							direction = direction + (wallNormal * 2)
+						elif walking:
+							direction = direction + (wallNormal * 2.8)
+						
+						wallRunning = false
 			else:
 				wallRunning = false
 		elif wallrayright.is_colliding():
 			if Input.is_action_pressed("forward"):
 				wallNormal = wallrayright.get_collision_normal()
 				wallRunning = true
-				if Input.is_action_just_pressed("jump"):
-					velocity.y = JUMP_VELOCITY * 1.8
-					if sliding:
-						direction = direction + (wallNormal * 1.8)
-					elif sprinting:
-						direction = direction + (wallNormal * 2)
-					elif walking:
-						direction = direction + (wallNormal * 2.8)
-					
-					wallRunning = false
-				else:
-					velocity.y = 0
+				if canWallJump:
+					if Input.is_action_just_pressed("jump"):
+						wallJumpsAmount = wallJumpsAmount - 1
+						velocity.y = JUMP_VELOCITY * 1.8
+						if sliding:
+							direction = direction + (wallNormal * 1.8)
+						elif sprinting:
+							direction = direction + (wallNormal * 2)
+						elif walking:
+							direction = direction + (wallNormal * 2.8)
+						
+						wallRunning = false
 			else:
 				wallRunning = false
 		else:
@@ -294,25 +323,28 @@ func wallRun():
 		
 		if wallrayfront.is_colliding():
 			wallNormal = wallrayfront.get_collision_normal()
-			if Input.is_action_just_pressed("jump"):
-				velocity.y = JUMP_VELOCITY * 1.8
-				if sliding:
-					direction = direction + (wallNormal * 1.8)
-				elif sprinting:
-					direction = direction + (wallNormal * 2)
-				elif walking:
-					direction = direction + (wallNormal * 2.8)
+			if canWallJump:
+				if Input.is_action_just_pressed("jump"):
+					wallJumpsAmount = wallJumpsAmount - 1
+					velocity.y = JUMP_VELOCITY * 1.8
+					if sliding:
+						direction = direction + (wallNormal * 1.8)
+					elif sprinting:
+						direction = direction + (wallNormal * 2)
+					elif walking:
+						direction = direction + (wallNormal * 2.8)
 		elif wallrayback.is_colliding():
 			wallNormal = wallrayback.get_collision_normal()
-			if Input.is_action_just_pressed("jump"):
-				velocity.y = JUMP_VELOCITY * 1.8
-				if sliding:
-					direction = direction + (wallNormal * 1.8)
-				elif sprinting:
-					direction = direction + (wallNormal * 2)
-				elif walking:
-					direction = direction + (wallNormal * 2.8)
-		
+			if canWallJump:
+				if Input.is_action_just_pressed("jump"):
+					wallJumpsAmount = wallJumpsAmount - 1
+					velocity.y = JUMP_VELOCITY * 1.8
+					if sliding:
+						direction = direction + (wallNormal * 1.8)
+					elif sprinting:
+						direction = direction + (wallNormal * 2)
+					elif walking:
+						direction = direction + (wallNormal * 2.8)
 	else:
 		wallRunning = false
 

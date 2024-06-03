@@ -22,6 +22,7 @@ sky_material = SubResource("ProceduralSkyMaterial_44tgv")
 background_mode = 2
 sky = SubResource("Sky_hg8f0")
 tonemap_mode = 2
+ssao_enabled = true
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_modth"]
@@ -39,8 +40,14 @@ albedo_texture = ExtResource("10_7d0nl")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_eivrc")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 14.8076, 0)
+light_energy = 10.309
+spot_range = 43.2073
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.629031, -0.645439, 0.433276, 0.0330763, 0.534628, 0.84444, -0.776676, 0.545511, -0.314949, 0, 0, 0)
+visible = false
 light_color = Color(0.988235, 0.968627, 0.956863, 1)
 shadow_enabled = true
 

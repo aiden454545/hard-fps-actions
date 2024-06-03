@@ -1,9 +1,11 @@
+Label
+HSlider
+LineEdit
 AnimationPlayer
 AnimationTree
 Node3D
 MultiplayerSynchronizer
 Node
-LineEdit
 CanvasLayer
 MultiplayerSpawner
 VScrollBar
@@ -11,5 +13,3 @@ Panel
 CSGBox3D
 CSGCombiner3D
 RayCast3D
-Camera3D
-MeshInstance3D

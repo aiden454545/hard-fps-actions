@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://byb6tp6oemv5a"]
+[gd_scene load_steps=19 format=3 uid="uid://byb6tp6oemv5a"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2jbgd"]
 [ext_resource type="Script" path="res://scripts/InteractRay.gd" id="2_vhdd1"]
 [ext_resource type="PackedScene" uid="uid://c3x2pkrbstf6q" path="res://scenes/Labels.tscn" id="3_mpmu3"]
 [ext_resource type="Script" path="res://scripts/weapon/weapon_sway.gd" id="4_iqx8o"]
 [ext_resource type="PackedScene" uid="uid://fsvu44kgr72v" path="res://scenes/my nodes/health.tscn" id="5_c5bmy"]
+[ext_resource type="Script" path="res://scripts/MenuScripts/pause_menu.gd" id="7_kxcfd"]
 [ext_resource type="Script" path="res://scripts/my nodes/Damageable.gd" id="8_56y3o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1um2k"]
@@ -266,6 +267,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("7_kxcfd")
 
 [node name="Panel" type="Panel" parent="pauseMenu"]
 self_modulate = Color(0.301961, 0.301961, 0.301961, 0.6)
@@ -316,6 +318,32 @@ text = "Leave
 "
 icon_alignment = 1
 
+[node name="MouseSensSlider" type="HSlider" parent="pauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -314.0
+offset_top = 286.0
+offset_right = 312.0
+offset_bottom = 302.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.01
+value = 0.2
+
+[node name="Label" type="Label" parent="pauseMenu"]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 569.0
+offset_right = 617.0
+offset_bottom = 592.0
+text = "MouseSens:"
+
 [connection signal="pressed" from="pauseMenu/MarginContainer/VBoxContainer/Resume" to="." method="Pause"]
 [connection signal="pressed" from="pauseMenu/MarginContainer/VBoxContainer/Restart" to="." method="Restart"]
 [connection signal="pressed" from="pauseMenu/MarginContainer/VBoxContainer/Leave" to="." method="Leave"]
+[connection signal="value_changed" from="pauseMenu/MouseSensSlider" to="pauseMenu" method="mouse_sens_slider_value_changed"]

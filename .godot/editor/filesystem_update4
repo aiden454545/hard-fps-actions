@@ -1,6 +1,7 @@
 res://scenes/player.tscn
 res://assets/materials/defaultKenneyDark.tres
-res://scripts/player2.gd
+res://scripts/player.gd
+res://scripts/MenuScripts/pause_menu.gd
 res://scenes/test_world.tscn
 res://scenes/Weapons/rifle.tscn
 res://scenes/Box Boy RagDoll.tscn
@@ -8,23 +9,5 @@ res://scenes/Weapons/fn_five_seven_139.tscn
 res://scenes/Labels.tscn
 res://scenes/Menus/pause_menu.tscn
 res://scenes/Menus/main_menu.tscn
-res://scenes/player_2.tscn
-res://scripts/fps.gd
-res://scripts/MenuScripts/pause_menu.gd
-res://scripts/player.gd
-res://scripts/auto loads/Preload.gd
 res://scenes/test_map.tscn
-res://scripts/InteractRay.gd
-res://scripts/my nodes/gunhandler.gd
-res://scripts/MenuScripts/main_menu.gd
-res://scripts/server.gd
-res://scripts/my nodes/RecoilHandler.gd
-res://scripts/health.gd
-res://scripts/weapon/bullet.gd
-res://scenes/Skeleton3D.gd
-res://scenes/Box Boy.gd
-res://scenes/GunRay.gd
-res://scripts/weapon/GunRay.gd
-res://scripts/my nodes/Damageable.gd
-res://scripts/my nodes/ActionInputs.gd
 res://scenes/bullet.tscn
